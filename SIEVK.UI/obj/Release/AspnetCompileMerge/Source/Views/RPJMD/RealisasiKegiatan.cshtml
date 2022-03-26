@@ -1,0 +1,481 @@
+﻿@{
+    ViewBag.Title = "RPJMD - Realisasi Kegiatan";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script>
+       var deleteStatus = true;
+    var IDdelete = 0;
+
+    var unitKey = '@ViewBag.unitKey';
+    var kdTahapan = '@ViewBag.kdTahap';
+    var IDkeg = '@ViewBag.IDKeg';
+        
+    $(document).ready(function () {
+
+        $('[data-toggle="tooltip"]').tooltip();
+        $("#UnitKodeSelected").val('@ViewBag.unitKey')
+        $("#UnitNameSelected").val('@ViewBag.unitOrgName')
+        $("#unitorganisasi-flexdatalist").val('@ViewBag.unitOrgName')
+
+        $("#IDProgramSelected").val('@ViewBag.idPrgrm')
+        $("#NameProgramSelected").val('@ViewBag.programName')
+        $("#program-flexdatalist").val('@ViewBag.programName')
+
+        $("#list").DataTable({
+            "processing": false, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": true, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "pageLength": 10,
+            "scrollCollapse": true,
+            "scrollX": true,
+            "scrollY": "350px", //cukup untuk 10 row
+            "ajax": {
+                //"url": rootUrl + "/RPJMD/LoadDataRealisasiProgram",
+                "url": '@Url.Content("~/")' + "RPJMD/LoadDataRealisasiKegiatan",
+                "type": "POST",
+                "datatype": "json",
+                "data": {
+                    "unitKey": function () { return $('#UnitKodeSelected').val() },
+                    "kdTahapan": function () { return $('#TahapanCombo').val() },
+                    "idprgrm": function () { return $('#IDProgramSelected').val() }
+                }
+            },
+            "columnDefs":
+            [
+            {
+                "targets": [2,3, 4, 5, 6, 7, 8],
+                "searchable": true,
+                "orderable": true,
+                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                    var $currencyCell = $(nTd);
+                    var commaValue = $currencyCell.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+                    $currencyCell.text(commaValue);
+                },
+                "className": "text-right",
+            },
+            {
+                "targets": [9, 10, 11],
+                "visible": false,
+                "searchable": false
+            }
+            ],
+            "fixedColumns": {
+                "leftColumns": 0
+            },
+            "columns": [
+                  { "data": "NUKEG", "name": "NUKEG", "autoWidth": true }, //bisa ditamhakan title
+                  { "data": "NMKEG", "name": "NMKEG", "autoWidth": true },
+                  { "data": "PAGULALU", "name": "PAGULALU", "autoWidth": true },
+                  { "data": "PAGU1", "name": "PAGU1", "autoWidth": true },
+                  { "data": "PAGU2", "name": "PAGU2", "autoWidth": true },
+                  { "data": "PAGU3", "name": "PAGU3", "autoWidth": true },
+                  { "data": "PAGU4", "name": "PAGU4", "autoWidth": true },
+                  { "data": "PAGU5", "name": "PAGU5", "autoWidth": true },
+                  { "data": "PAGUAKHIR", "name": "PAGUAKHIR", "autoWidth": true },
+                  { "data": "IDKEG", "name": "IDKEG", "autoWidth": true }, //hide
+                  { "data": "UNITKEY", "name": "UNITKEY", "autoWidth": true }, //hide
+                  { "data": "KDTAHAP", "name": "KDTAHAP", "autoWidth": true }, //hide
+                  {
+                      "render": function (data, type, full, meta)
+                      {
+                          //var textdetail = document.getElementById('txtDetailInfo');
+                          //textdetail.innerHTML = full.NUKEG +' - ' +full.NMKEG
+                          return '<a class="btn btn-md btn-success icon-edit" data-toggle="tooltip" data-placement="top" title="Ubah Realisasi" href="@Url.Action("KegiatanRPJMDEdit", "RPJMD")' + "?unitKey=" + full.UNITKEY + "&kdTahap=" + full.KDTAHAP + "&idProgram=" + full.IDPRGRM + "&IDKeg=" + full.IDKEG + '">';
+                      }
+                  },
+            ]
+
+        });
+
+        $("#listdetail").DataTable({
+            "processing": false, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": false, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "paging": false, //supaya tidak keluar combo total row selectednya, ada custom di code behind
+            "scrollCollapse": true,
+            "scrollX": true,
+            "scrollY": "350px", //cukup untuk 10 row
+            "ajax": {
+                //"url": rootUrl + "/RPJMD/LoadDataRealisasiProgram",
+                "url": '@Url.Content("~/")' + "RPJMD/LoadDataRealisasiKegiatanDetail",
+                "type": "POST",
+                "datatype": "json",
+                "data": {
+                    "unitKey": function () { return unitKey },
+                    "kdTahapan": function () { return kdTahapan },
+                    "IDKeg": function () { return IDkeg }
+                }
+            },
+            "columnDefs":
+            [
+            {
+                "targets": [0,1,2, 3, 4, 5],
+                "searchable": false,
+                "orderable": false,
+                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                    var $currencyCell = $(nTd);
+                    var commaValue = $currencyCell.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+                    $currencyCell.text(commaValue);
+                },
+                "className": "text-right",
+            },
+            {
+                "targets": [7, 8, 9],
+                "visible": false,
+                "orderable": false,
+                "searchable": false
+            },
+             {
+                 "targets": [10],
+                 "orderable": false,
+                 "className": "text-center"
+             }
+            ],
+            "columns": [
+                  { "data": "REAL1", "name": "REAL1", "autoWidth": true },
+                  { "data": "REAL2", "name": "REAL2", "autoWidth": true },
+                  { "data": "REAL3", "name": "REAL3", "autoWidth": true },
+                  { "data": "REAL4", "name": "REAL4", "autoWidth": true },
+                  { "data": "REAL5", "name": "REAL5", "autoWidth": true },
+                  { "data": "REAL6", "name": "REAL6", "autoWidth": true },
+                  { "data": "KET", "name": "KET", "autoWidth": true },
+                  { "data": "IDKEG", "name": "IDKEG", "autoWidth": true }, //hide
+                  { "data": "UNITKEY", "name": "UNITKEY", "autoWidth": true }, //hide
+                  { "data": "KDTAHAP", "name": "KDTAHAP", "autoWidth": true }, //hide
+                  {
+                      "render": function (data, type, full, meta)
+                      {
+                          var textdetail = document.getElementById('txtDetailInfo');
+                          textdetail.innerHTML = full.NUKEG +' - ' +full.NMKEG
+                          return '<a class="btn btn-md btn-success icon-edit" data-toggle="tooltip" data-placement="top" title="Ubah Realisasi" href="@Url.Action("RealisasiKegiatanEdit", "RPJMD")' + "?unitKey=" + full.UNITKEY + "&kdTahap=" + full.KDTAHAP + "&IDKeg=" + full.IDKEG + '"></a>&nbsp;' +
+                          '<a class="OpenModal btn btn-md btn-danger icon-trash" data-toggle="tooltip" data-placement="top" title="Hapus Realisasi" data-nmkeg="' + full.NMKEG + '" href="#confirm-delete"></a>';
+
+                      }
+                  },
+            ]
+
+        });
+
+    });
+    </script>
+
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmRealisasiKegiatan", @ng_app = "RPJMDApp", @data_ng_controller = "validateCtrl" }))
+    {
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            @if (ViewBag.Info != "" && ViewBag.Info != null)
+            {
+                <div class="alert alert-success">@ViewBag.Info</div>
+            }
+            <div class="alert-delete"></div>
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-list-alt"></i>
+                    <h3>Evaluasi RPJMD - Realisasi Kegiatan</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="control-label" for="Unit">Unit Organisasi</label>
+                            <div class="controls-filter">
+                                <input type="text" id="unitorganisasi" name="unitorganisasi" ng-invalid ng-model="unitorganisasi" class="form-control input-sm flexdatalistunit span6" placeholder='Isi Nama Unit Organisasi' required>
+                                @Html.Hidden("UnitKodeSelected")
+                                @Html.Hidden("UnitNameSelected")
+                                <span style="color:maroon" ng-show="frmRealisasiKegiatan.unitorganisasi.$dirty && frmRealisasiKegiatan.unitorganisasi.$invalid">
+                                    <span ng-show="frmRealisasiKegiatan.unitorganisasi.$error.required">Unit Organisasi harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TahapanCombo">Tahapan</label>
+                            <div class="controls-filter">
+                                @Html.DropDownList("TahapanCombo", null, new { @class = "form-control input-sm span2" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Program">Program</label>
+                            <div class="controls-filter">
+                                <input type="text" id="program" name="program" ng-invalid ng-model="program" class="form-control input-sm flexdatalistprogram span6" placeholder='Isi Nama Program' required>
+                                @Html.Hidden("IDProgramSelected")
+                                @Html.Hidden("NameProgramSelected")
+                                <span style="color:maroon" ng-show="frmRealisasiKegiatan.program.$dirty && frmRealisasiKegiatan.program.$invalid">
+                                    <span ng-show="frmRealisasiKegiatan.program.$error.required">Program harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="controls-filter">
+                                <button type="button" class="btn btn-primary" id="btnCari" ng-disabled="frmRealisasiKegiatan.$invalid"><i class="btn-icon-only icon-search"> Cari </i></button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="span12">
+            <div class="widget">
+                <div class="widget-content">
+                    <table id="list" class="table table-striped table-bordered dt-responsive nowrap header-cursor" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Kode</th>
+                                <th>Kegiatan</th>
+                                <th>Pagu Lalu</th>
+                                <th>Pagu @ViewBag.Tahun1</th>
+                                <th>Pagu @ViewBag.Tahun2</th>
+                                <th>Pagu @ViewBag.Tahun3</th>
+                                <th>Pagu @ViewBag.Tahun4</th>
+                                <th>Pagu @ViewBag.Tahun5</th>
+                                <th>Pagu Akhir</th>
+                                <th>ID Kegiatan</th>
+                                <th>Unit Key</th>
+                                <th>Kode Tahap</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="span12">
+            <div class="widget">
+                <div class="widget-content">
+                    <label style="text-align: left" width="100%" id="txtDetailInfo"></label>
+                    <table id="listdetail" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Realisasi @ViewBag.Tahun1</th>
+                                <th>Realisasi @ViewBag.Tahun2</th>
+                                <th>Realisasi @ViewBag.Tahun3</th>
+                                <th>Realisasi @ViewBag.Tahun4</th>
+                                <th>Realisasi @ViewBag.Tahun5</th>
+                                <th>Realisasi @ViewBag.Tahun6</th>
+                                <th>Keterangan</th>
+                                <th>ID Kegiatan</th>
+                                <th>Unit Key</th>
+                                <th>Kode Tahap</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <br>
+                    <button type="button" style="display:none;" class="btn btn-success" id="btnTambah"><i class="btn-icon-only icon-plus"> Tambah </i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Konfirmasi Hapus</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <p>Apakah anda yakin menghapus data realisasi kegiatan <b><i class="nmkeg"></i></b> ?</p>
+                        <p class="debug-url"></p>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                        <a class="btn btn-danger btn-ok">Hapus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="ModalExistData" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Informasi</h4>
+        </div>
+        <div class="modal-body">
+          <p>Data realisasi sudah ada.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        
+    }
+</body>
+</html>
+
+<script>
+    jQuery(document).ready(function () {
+        document.getElementById("btnCari").disabled = true;
+
+        if ('@ViewBag.HasUnitKey' == "True") {
+            document.getElementById("unitorganisasi-flexdatalist").disabled = true;
+        }
+
+        jQuery("#btnTambah").click(function () {
+
+            if (unitKey == "" || kdTahapan == "" || IDkeg == "")
+            {
+                return;
+            }
+
+            var table = $('#listdetail').DataTable();
+            if (table.data().count() > 0) {
+                $('#ModalExistData').modal('show');
+            }
+            else {
+                window.location.href = '@Url.Action("RealisasiKegiatanCreate", "RPJMD")' + "?unitKey=" + unitKey + "&kdTahap=" + kdTahapan + "&IDKeg=" + IDkeg;
+            }
+
+        });
+
+        var table = $("#list").DataTable();
+        $('#list tbody').on('click', 'tr', function () {
+            var sData = table.row(this).data()
+            unitKey = sData["UNITKEY"];
+            kdTahapan = sData["KDTAHAP"];
+            IDkeg = sData["IDKEG"];
+
+            var textdetail = document.getElementById('txtDetailInfo');
+            textdetail.innerHTML = sData["NUKEG"] + ' - ' + sData["NMKEG"];
+
+            var tabledetail = $("#listdetail").DataTable();
+            tabledetail.ajax.reload();
+
+            //$(this).css('background', '#fcd07e');
+            // show hide button after user click row
+            document.getElementById("btnTambah").style.display = "block";
+        });
+    });
+
+    $('.flexdatalistunit').flexdatalist({
+        searchContain: true,
+        textProperty: '{KDUNIT}' + ' ' + '{NMUNIT}',
+        valueProperty: 'iso2',
+        minLength: 0,
+        focusFirstResult: true,
+        selectionRequired: true,
+        noResultsText: 'Tidak ada hasil untuk "{keyword}"',
+        visibleProperties: ["KDUNIT", "NMUNIT"],
+        searchIn: ["KDUNIT", "NMUNIT"],
+        url: '@Url.Content("~/")' + 'RPJMD/GetUnitOrganization/',
+        relatives: '#relative'
+    }).on("select:flexdatalist", function (event, data) {
+        $('#UnitKodeSelected').val(data.UNITKEY);
+        $('#UnitNameSelected').val(data.NMUNIT);
+
+        $('#program').val('').parent().find("ul.flexdatalist-multiple li.value").remove();
+
+    });
+
+    $("#TahapanCombo").change(function () {
+        $('#program').val('').parent().find("ul.flexdatalist-multiple li.value").remove();
+    });
+
+    var paramsKey = { unitKey: "", kdTahapan: "" };
+    $('.flexdatalistprogram').on('before:flexdatalist.data', function (event) {
+        var uk = $('#UnitKodeSelected').val();
+        var kt = $('#TahapanCombo').val();
+        paramsKey = { unitKey: uk, kdTahapan: kt }
+        $('.flexdatalistprogram').flexdatalist('params', paramsKey);
+    });
+
+    $('.flexdatalistprogram').flexdatalist({
+        cache: false,
+        searchContain: true,
+        textProperty: '{KDPRGRM}' + ' ' + '{NMPRGRM}',
+        valueProperty: 'iso2',
+        minLength: 0,
+        focusFirstResult: true,
+        selectionRequired: true,
+        noResultsText: 'Tidak ada hasil untuk "{keyword}"',
+        visibleProperties: ["KDPRGRM", "NMPRGRM"],
+        searchIn: ["KDPRGRM", "NMPRGRM"],
+        url: '@Url.Content("~/")' + 'RPJMD/GetProgram/',
+        params: paramsKey,
+        relatives: '#relative'
+    }).on("select:flexdatalist", function (event, data) {
+        $('#IDProgramSelected').val(data.IDPRGRM);
+        $('#NameProgramSelected').val(data.NMPRGRM);
+    });
+
+    $("#btnCari").click(function () {
+        kdTahapan = "";
+        IDkeg = "";
+        var table = $("#list").DataTable();
+        table.ajax.reload();
+
+        // hide add button after user click seacrh button
+        document.getElementById("btnTambah").style.display = "none";
+    });
+
+
+    var app = angular.module('RPJMDApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.unitorganisasi = '@ViewBag.unitOrgName';
+        $scope.program = '@ViewBag.program';
+    });
+
+    //delete function
+    $(document).on("click", ".btn-ok", function (e) {
+        if (deleteStatus == true) //only 1 working in 1 click ok function
+        {
+            var url = '@Url.Content("~/")' + "RPJMD/DeleteRealisasiKegiatan";
+            $.post(url, { unitkey: unitKey, kdtahapan: kdTahapan, IDKeg: IDkeg }, function (data) {
+                if (data == "Deleted") {
+                    oTable = $('#listdetail').DataTable();
+                    oTable.draw();
+                    // add alert after delete
+                    addAlert();
+                }
+                else {
+                    alert("Terjadi kesalahan! Error" + data);
+                }
+            });
+            deleteStatus = false;
+            $('#confirm-delete').modal('hide');//if success then hide
+        }
+
+    })
+
+    $(document).on("click", ".OpenModal", function (e) {
+        e.preventDefault();
+        deleteStatus = true;
+        var _self = $(this);
+        var nmkeg = _self.data('nmkeg');
+        $(".nmkeg").text(nmkeg);
+
+        $(_self.attr('href')).modal('show');
+    });
+
+    function addAlert() {
+        var nmkeg = $(".nmkeg").text();
+        var div = document.createElement('div');
+        div.className = 'alert alert-success';
+        div.innerHTML =
+            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+                 Realisasi Kinerja program <b>' + nmkeg + '</b> berhasil dihapus.';
+
+        document.getElementsByClassName("alert-delete")[0].appendChild(div);
+    }
+
+</script>

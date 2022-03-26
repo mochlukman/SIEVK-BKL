@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Integrasi - Transfer Tahapan RKPD";
+    var isTransfer = ViewBag.isTransfer;
+    var isDeleteInsert = ViewBag.isDeleteInsert;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmTransferTahapanRKPD", @ng_app = "IntegrasiApp", @data_ng_controller = "validateCtrl" }))
+    {
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            @if (ViewBag.Info != "" && ViewBag.Info != null)
+            {
+                <div class="alert alert-success">@ViewBag.Info</div>
+            }
+            
+            <div class="alert-delete"></div>
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-retweet"></i>
+                    <h3>Integrasi - Transfer Tahapan RKPD</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="control-label" for="Unit">User Id</label>
+                            <div class="controls-filter">
+                                <input type="text" id="userId" name="userId" ng-invalid ng-model="userId" class="form-control input-sm flexdatalistunit span6" placeholder='Isi User Id' required>
+                                <span style="color:maroon" ng-show="frmTransferTahapanRKPD.userId.$dirty && frmTransferTahapanRKPD.userId.$invalid">
+                                    <span ng-show="frmTransferTahapanRKPD.userId.$error.required">User Id harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Unit">Unit Organisasi</label>
+                            <div class="controls-filter">
+                                <input type="text" id="unitorganisasi" name=" unitorganisasi" ng-invalid ng-model="unitorganisasi" class="form-control input-sm flexdatalistunit span6" placeholder='Isi Nama Unit Organisasi' required>
+                                @Html.Hidden("UnitKodeSelected")
+                                @Html.Hidden("UnitNameSelected")
+                                <span style="color:maroon" ng-show="frmTransferTahapanRKPD.unitorganisasi.$dirty && frmTransferTahapanRKPD.unitorganisasi.$invalid">
+                                    <span ng-show="frmTransferTahapanRKPD.unitorganisasi.$error.required">Unit Organisasi harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TahapanCombo">Tahapan</label>
+                            <div class="controls-filter">
+                                @Html.DropDownList("TahapanCombo", null, new { @class = "form-control input-sm span2" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Tujuan">Tujuan</label>
+                            <div class="controls-filter" style="padding-top:4px;">
+                                @Html.CheckBox("chkTransfer", (bool)isTransfer, new { @style = "margin:0 auto;" }) Transfer Data &nbsp; @Html.CheckBox("chkDeleteInsert", (bool)isDeleteInsert, new { @style = "margin:0 auto;" }) Delete Insert
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="controls-filter">
+                                <button type="button" class="btn btn-primary" id="btnOk" ng-disabled="frmTransferTahapanRKPD.$invalid"><i class="btn-icon-only icon-ok"> OK </i></button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+
+<script>
+    jQuery(document).ready(function () {
+        
+    });
+
+    $('.flexdatalistunit').flexdatalist({
+        searchContain: true,
+        textProperty: '{KDUNIT}' + ' ' + '{NMUNIT}',
+        valueProperty: 'iso2',
+        minLength: 1,
+        focusFirstResult: true,
+        selectionRequired: true,
+        noResultsText: 'Tidak ada hasil untuk "{keyword}"',
+        visibleProperties: ["KDUNIT", "NMUNIT"],
+        searchIn: ["KDUNIT", "NMUNIT"],
+        url: '@Url.Content("~/")' + 'Integrasi/GetUnitOrganization/',
+        relatives: '#relative'
+    }).on("select:flexdatalist", function (event, data) {
+        $('#UnitKodeSelected').val(data.UNITKEY);
+        $('#UnitNameSelected').val(data.NMUNIT);
+    });
+
+    var app = angular.module('IntegrasiApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.unitorganisasi = '@ViewBag.unitOrgName';
+    });
+
+</script>

@@ -1,0 +1,162 @@
+﻿@model SIEVK.Domain.Common.Users
+
+
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Details</title>
+            <style>
+                .controls {
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                }
+            </style>
+        </head>
+        <body>
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="span12" >
+        @if (!Html.ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationSummary()
+            </div>
+        }
+
+        <div class="widget">
+            <div class="widget-header">
+                <i class="icon-file"></i>
+                <h3>@ViewBag.Title</h3>
+            </div>
+            <div class="widget-content">
+                @*<form class="form-horizontal" action="#" method="POST">*@
+                <fieldset>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => Model.ID)
+
+                    <div class="form-group">
+                        <label class="control-label" for="UserName">Username</label>
+                        <div class="controls">
+                            <div class="col-sm-3">
+                                @if (Model != null)
+                                {
+                                    <div id="UserName">
+                                        <label class="value-label" for="UserName">: @(Model.UserName)</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="UserGroup">Group User</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="UserGroupName">
+                                        <label class="value-label" for="UserName">: @(Model.UserGroupName)</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="UserGroup">Unit</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="UserGroupName">
+                                        <label class="value-label" for="UserName">: @(Model.KdUnit) @(Model.NmUnit)</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="FirstName">Nama Awal</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="FirstName">
+                                        <label class="value-label" for="UserName">: @(Model.FirstName)</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="LastName">Nama Akhir</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="LastName">
+                                        <label class="value-label" for="UserName">: @(Model.LastName)</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="Email">Email</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="Email">
+                                        <label class="value-label" for="UserName">: @(Model.Email)</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="IsActive">Aktif Status</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="IsActiveText">
+                                        <label class="value-label" for="UserName">: @(Model.IsActiveText)</label>
+                                       
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+
+                    @*Button Action*@
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary" onclick="location.href='@if (Model != null){ @Html.Raw(@Url.Content("~/Users/Edit/") + Model.UserName + "/");}'"><i class="btn-icon-only icon-edit"></i>Ubah</button>
+                        <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                    </div>
+                </fieldset>
+                @*</form>*@
+            </div>
+        </div>
+    </div>
+
+            }
+
+        </body>
+    </html>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+           
+        });
+        jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/Users/Index/"))"); });
+
+    </script>
+

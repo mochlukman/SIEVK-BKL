@@ -1,0 +1,215 @@
+﻿@{
+    ViewBag.Title = "Dashboard - Grafik Penyerapan Anggaran";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script>
+    
+        var kdTahap = '@ViewBag.kdTahap';
+        var kdTahun = '@ViewBag.kdTahun';
+        var kdTrwln = '@ViewBag.kdTrwln';
+    </script>
+
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmGrafikPenyAnggaran", @ng_app = "DashboardApp", @data_ng_controller = "validateCtrl" }))
+    {
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            @if (ViewBag.Info != "" && ViewBag.Info != null)
+            {
+                <div class="alert alert-success">@ViewBag.Info</div>
+            }
+            <div class="alert-delete"></div>
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-list-alt"></i>
+                    <h3>Dashboard - Grafik Penyerapan Anggaran</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label class="control-label" for="TahapanCombo">Tahapan</label>
+                            <div class="controls-filter">
+                                @Html.DropDownList("TahapanCombo", null, new { @class = "form-control input-sm span2" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TahunAnggaranCombo">Tahun Anggaran</label>
+                            <div class="controls-filter">
+                                @Html.DropDownList("TahunAnggaranCombo", null, new { @class = "form-control input-sm span2" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TriwulanCombo">Tahun Anggaran</label>
+                            <div class="controls-filter">
+                                @Html.DropDownList("TriwulanCombo", null, new { @class = "form-control input-sm span2" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="controls-filter">
+                                <button type="button"  id="btnGenerate" class="btn btn-primary" ng-disabled="frmGrafikPenyAnggaran.$invalid">
+                                    <i class=" btn-icon-only icon-print">
+                                    </i>Generate
+                                </button>
+                            </div>
+                            </div>
+                    </fieldset>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="span12">
+            <div class="widget">
+                <div id="chartContent" class="widget-content" >
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+
+</html>
+
+<script> 
+    var myNewChart;
+    function getRandomColorHex() {
+        var hex = "0123456789ABCDEF",
+            color = "#";
+        for (var i = 1; i <= 6; i++) {
+            color += hex[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    
+
+    function loopingNRandomColor(countOfData) {        
+        var i;
+        var str="";
+        for (i = 0; i < countOfData; i++) {
+           
+            str += ", " + getRandomColorHex();
+        }
+        return str.substring(1, str.len);
+    }
+
+    function SetColors(data) {
+        var colors = []
+        for (var i = 0; i < data.length; i++) {
+            var color;
+            if (data[i] <= 50) {
+                color = "red";
+            }
+            else if ((data[i] > 50) & (data[i] <= 65)) {
+                color = "#5C8249";
+            }
+            else if ((data[i] > 65) & (data[i] <= 75)) {
+                color = "yellow";
+            }
+            else if ((data[i] > 75) & (data[i] <= 90)) {
+                color = "#BDC3BA";
+            }
+            else {
+                color = "#58F609";
+            }
+
+            colors[i] = color;
+        }
+
+        return colors
+    }
+
+    $("#btnGenerate").click(function () {
+        if (myNewChart != null)
+        {
+            myNewChart.destroy();
+            myNewChart = null;
+        }
+        
+        $.ajax({
+        type: "POST",  
+        url: '@Url.Content("~/")' + "Dashboard/JSONGrafikPenyerapanAnggaran?kdTahap=" + $('#TahapanCombo').val() + "&kdTahun=" + $('#TahunAnggaranCombo').val() + "&kdTrwln=" + $('#TriwulanCombo').val(),
+        contentType: "application/json; charset=utf-8",  
+        dataType: "json",  
+        //        data: { kdTahap: $('#TahapanCombo').val(), kdTahun: $('#TahunAnggaranCombo').val(), kdTrwln: $('#TriwulanCombo').val() },
+            //data: { kdTahap: "21", kdTahun: "4", kdTrwln: "1" },
+        //data: { "ItemRows": s },
+        success: function (chData) {
+            var aData = chData;  
+            var aLabels = aData[0];  
+            var aDatasets1 = aData[1];  
+            var dataT = {  
+                labels: aLabels,  
+                datasets: [{  
+                    label: "SKPD Unit (%)",  
+                    data: aDatasets1,  
+                    fill: false,
+                    backgroundColor: SetColors(aDatasets1),//[getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex(), getRandomColorHex()],
+                    borderColor: ["#E5E5E5", "#E5E5E5", "#E5E5E5", "#E5E5E5", "#E5E5E5"],
+                    borderWidth: 1  
+                }]  
+            };
+
+            var chartContent = document.getElementById('chartContent');
+            chartContent.innerHTML = '&nbsp;';
+            $('#chartContent').append('<canvas id="myChart" style="height:150vh; width:80vw"><canvas>');
+            var ctx = $("#myChart").get(0).getContext("2d");
+
+             myNewChart = new Chart(ctx, {  
+                type: 'horizontalBar',
+                data: dataT,  
+                options: {  
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    title: { display: true, text: 'GRAFIK PENYERAPAN ANGGARAN' },  
+                    legend: { position: 'top', display: true },  
+                    scales: {
+                        xAxes: [{ gridLines: { display: true }, display: true, scaleLabel: { display: false, labelString: '' }, ticks: { beginAtZero: true, callback: function(value, index, values){return value.toLocaleString('id');} } }],
+                        yAxes: [{ gridLines: { display: false }, display: true, scaleLabel: { display: false, labelString: '' } }]
+                    }
+                    ,tooltips: {
+                            callbacks: {
+                            label: function(tooltipItems, data) {
+                                    return "Data = " + data.datasets[0].data[tooltipItems.index].toLocaleString('id');
+                                }
+                            }
+                    },
+
+                    /* Label auf Balken – Werte hinter balken*/
+                    plugins: {
+                        datalabels: {
+                            color: 'black',
+                            display: function (context) {
+                                return context.dataset.data[context.dataIndex] > 7;
+                            },
+                            font: {
+                                weight: 'bold'
+                            },
+                            formatter: function (value, context) {
+                                return $.number(value, 2) + ' %';
+                            }
+                        },
+                    }/*Plugins ende*/
+                }  
+             });
+             
+        }  
+    });  
+    
+    });
+
+    
+</script>

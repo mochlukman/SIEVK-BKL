@@ -1,0 +1,122 @@
+﻿@model SIEVK.Domain.RPJMD.RPJMDEvaluasiSimpul
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmEvaluasiSimpul", @ng_app = "RealisasiApp", @data_ng_controller = "validateCtrl" }))
+{
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-file"></i>
+                    <h3>Kesimpulan Pengendalian dan Evaluasi   RPJMD - @ViewBag.Method</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <input type="hidden" name="iscrate" value="@ViewBag.isCreate" />
+                        @*<input type="hidden" name="kdTahun" value="@ViewBag.kdTahun" />*@
+
+                        @{if (ViewBag.isCreate == "false")
+                            {
+                                <div class="form-group">
+                                    <label class="control-label" for="NOMOR">Nomor<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.NOMOR, new { @class = "span4", @rows = "3", @ng_required = "true", @ng_model = "NOMOR", @readonly = "readonly" })
+                                        <span style="color:maroon" ng-show="frmEvaluasiSimpul.NOMOR.$dirty && frmEvaluasiSimpul.NOMOR.$invalid">
+                                            <span ng-show="frmEvaluasiSimpul.NOMOR.$error.required">Nomor harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                            else
+                               {
+                                    <div class="form-group">
+                                        <label class="control-label" for="NOMOR">Nomor<i class="icon-asterisk supscript"></i></label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => Model.NOMOR, new { @class = "span4", @rows = "3", @ng_required = "true", @ng_model = "NOMOR" })
+                                            <span style="color:maroon" ng-show="frmEvaluasiSimpul.NOMOR.$dirty && frmEvaluasiSimpul.NOMOR.$invalid">
+                                                <span ng-show="frmEvaluasiSimpul.NOMOR.$error.required">Nomor harus diisi</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                                <div class="form-group">
+                                    <label class="control-label" for="ASPEK">Aspek</label>
+                                    <div class="controls">
+                                        @Html.TextAreaFor(model => Model.ASPEK, new { @class = "span4", @rows = "3" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="PENJELASAN">Penjelasan Hasil Pengendalian dan Evaluasi</label>
+                                    <div class="controls">
+                                        @Html.TextAreaFor(model => Model.PENJELASAN, new { @class = "span4", @rows = "3" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="KET">Keterangan</label>
+                                    <div class="controls">
+                                        @Html.TextAreaFor(model => Model.KET, new { @class = "span4", @rows = "3" })
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="frmEvaluasiSimpul.$invalid">
+                                        <i class=" btn-icon-only icon-save">
+                                        </i>Simpan
+                                    </button>
+
+                                    <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                                </div>
+                            </fieldset>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>
+
+<script>                                                                            
+    jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/RPJMD/EvaluasiSimpul"))"); });
+
+    $(function () {
+        $('.form-horizontal').submit(function () {
+            $("input[type='submit']", this)
+              .val("Please Wait...")
+              .attr('disabled', 'disabled');
+            return true;
+        });
+    });
+
+    var app = angular.module('RealisasiApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.NOMOR = '@Model.NOMOR';
+    });
+
+    jQuery(document).ready(function () {
+        jQuery(".currency").autoNumeric('init', { aSep: '.', aDec: ',', aSign: ' ', mDec: 0 });
+    })
+
+</script>

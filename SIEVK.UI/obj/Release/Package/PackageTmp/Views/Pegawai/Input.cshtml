@@ -1,0 +1,177 @@
+﻿@model SIEVK.Domain.Common.Pegawai
+
+
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Details</title>
+            <style>
+                .controls {
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmUser", @ng_app="PegawaiApp", @data_ng_controller="validateCtrl" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="span12">
+                    @if (!Html.ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-file"></i>
+                            <h3>@ViewBag.Title</h3>
+                        </div>
+                        <div class="widget-content">
+                            <fieldset>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                @if (@ViewBag.isEdit == false)
+                                {
+                                    <div class="form-group" id="divNIP">
+                                        <label class="control-label" for="NIP">NIP<i class="icon-asterisk supscript"></i></label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => Model.NIP, new { @class = "span3", @maxlength = "50", @ng_required = "true", @ng_model = "NIP" })
+                                            <span style="color:maroon" ng-show="frmUser.NIP.$dirty && frmUser.NIP.$invalid">
+                                                <span ng-show="frmUser.NIP.$error.required">NIP harus diisi</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="form-group" id="divNIP">
+                                        <label class="control-label" for="NIP">NIP<i class="icon-asterisk supscript"></i></label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => Model.NIP, new { @class = "span3", @maxlength = "50", @ng_required = "true", @ng_model = "NIP", @readonly = "readonly" })
+                                            <span style="color:maroon" ng-show="frmUser.NIP.$dirty && frmUser.NIP.$invalid">
+                                                <span ng-show="frmUser.NIP.$error.required">NIP harus diisi</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                }
+                                
+
+                                <div class="form-group">
+                                    <label class="control-label" for="Unit">Unit<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.DropDownList("UnitCombo", null, new { @class = "form-control input-sm span6" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="Golongan">Golongan<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.DropDownList("GolonganCombo", null, new { @class = "form-control input-sm span3" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="NAMA">Nama<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.NAMA, new { @class = "span3", @maxlength = "100", @ng_required = "true", @ng_model = "NAMA" })
+                                        <span style="color:maroon" ng-show="frmUser.NAMA.$dirty && frmUser.NAMA.$invalid">
+                                            <span ng-show="frmUser.FirstName.$error.required">Nama harus diisi</span>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="ALAMAT">ALAMAT</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.ALAMAT, "", new { @class = "span3", @maxlength = "200" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="JABATAN">Jabatan</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.JABATAN, "", new { @class = "span3", @maxlength = "200" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="PDDK">Pendidikan</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.PDDK, "", new { @class = "span3", @maxlength = "200" })
+                                    </div>
+                                </div>
+
+
+                                @*Button Action*@
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="frmUser.$invalid">
+                                        <i class=" btn-icon-only icon-save">
+                                        </i>Simpan
+                                    </button>
+                                    <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                                </div>
+                            </fieldset>
+                            @*</form>*@
+                        </div>
+                    </div>
+                </div>
+            }
+            
+</body>
+    </html>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            
+        });
+        jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/Pegawai/Index/"))"); });
+        
+        @if (@ViewBag.isEdit == true)
+        {
+            <text>
+            $('#UserName').attr('readonly', true);
+            </text>
+        }
+
+        var app = angular.module('PegawaiApp', []);
+        app.controller('validateCtrl', function ($scope) {
+            $scope.NIP = '@Model.NIP';
+            $scope.NAMA = '@Model.NAMA';
+        });
+        
+        $(function () {
+            $('.form-horizontal').submit(function () {
+                $("input[type='submit']", this)
+                  .val("Please Wait...")
+                  .attr('disabled', 'disabled');
+                return true;
+            });
+        });
+
+        var compareTo = function () {
+            return {
+                require: "ngModel",
+                scope: {
+                    otherModelValue: "=compareTo"
+                },
+                link: function (scope, element, attributes, ngModel) {
+
+                    ngModel.$validators.compareTo = function (modelValue) {
+                        return modelValue == scope.otherModelValue;
+                    };
+
+                    scope.$watch("otherModelValue", function () {
+                        ngModel.$validate();
+                    });
+                }
+            };
+        };
+
+        app.directive("compareTo", compareTo);
+       
+
+    </script>
+

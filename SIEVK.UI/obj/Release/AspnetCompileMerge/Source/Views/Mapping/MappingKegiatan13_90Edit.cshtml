@@ -1,0 +1,195 @@
+﻿@model SIEVK.Domain.Mapping.MappingKegiatan13_90
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+
+            $("#IDProgram90Selected").val('@ViewBag.idprgrm90')
+            $("#NameProgram90Selected").val('@ViewBag.programName90')
+            $("#program-flexdatalist").val('@ViewBag.programName90')
+
+            $("#IDKegiatan90Selected").val('@ViewBag.idKeg90')
+            $("#NameKegiatan90Selected").val('@ViewBag.kegiatanName90')
+            $("#kegiatan-flexdatalist").val('@ViewBag.kegiatanName90')
+        });
+    </script>
+
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmMapping", @ng_app = "MappingApp", @data_ng_controller = "validateCtrl" }))
+{
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-file"></i>
+                    <h3>Mapping - Kegiatan 13 (lama) ke Permen 90 - @ViewBag.Method</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => Model.IDPRGRM)
+                        @Html.HiddenFor(model => Model.IDKEG)
+                        @Html.HiddenFor(model => Model.IDKEG90)
+                        @Html.HiddenFor(model => Model.KDTAHUN)
+                        @Html.HiddenFor(model => Model.IDKEG90_Prev)
+
+                        @*<div class="form-group">
+            <label class="control-label" for="MPGRM90Combo">Program<i class="icon-asterisk supscript"></i></label>
+            <div class="controls">
+                @Html.DropDownList("MPGRM90Combo", null, new { @class = "form-control input-sm span3" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="MKEGIATAN90Combo">Kegiatan<i class="icon-asterisk supscript"></i></label>
+            <div class="controls">
+                @Html.DropDownList("MKEGIATAN90Combo", null, new { @class = "form-control input-sm span3" })
+            </div>
+        </div>*@
+
+                        <div class="form-group">
+                            <label class="control-label" for="program">Program<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls-filter">
+                                <input type="text" id="program" name="program" ng-invalid ng-model="program" class="form-control input-sm flexdatalistprogram span6" placeholder='Isi Nama Program' required>
+                                @Html.Hidden("IDProgram90Selected")
+                                @Html.Hidden("NameProgram90Selected")
+                                <span style="color:maroon" ng-show="frmMapping.program.$dirty && frmMapping.program.$invalid">
+                                    <span ng-show="frmMapping.program.$error.required">Program harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="kegiatan">Kegiatan<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls-filter">
+                                <input type="text" id="kegiatan" name="kegiatan" ng-invalid ng-model="kegiatan" class="form-control input-sm flexdatalistkegiatan span6" placeholder='Isi Nama Kegiatan' required>
+                                @Html.Hidden("IDKegiatan90Selected")
+                                @Html.Hidden("NameKegiatan90Selected")
+                                <span style="color:maroon" ng-show="frmMapping.kegiatan.$dirty && frmMapping.kegiatan.$invalid">
+                                    <span ng-show="frmMapping.kegiatan.$error.required">Kegiatan harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="TahunAnggaranCombo">Tahun<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.DropDownList("TahunAnggaranCombo", null, new { @class = "form-control input-sm span3" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" ng-disabled="frmMapping.$invalid">
+                                <i class=" btn-icon-only icon-save">
+                                </i>Simpan
+                            </button>
+
+                            <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>
+
+<script>      
+    jQuery(document).ready(function () {
+            @{String _kodetahun = "";
+                String _IDPRGRM = "";
+                String _IDKEG = "";
+                if (Model != null)
+                {
+                    _kodetahun = Model.KDTAHUN;
+                    _IDPRGRM = Model.IDPRGRM;
+                    _IDKEG = Model.IDKEG;
+                }
+        }
+        jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/Mapping/MappingKegiatan13_90?idPrgrm=" + _IDPRGRM + "&idKeg=" + _IDKEG))"); });
+    });
+    
+
+    $(function () {
+        $('.form-horizontal').submit(function () {
+            $("input[type='submit']", this)
+              .val("Please Wait...")
+              .attr('disabled', 'disabled');
+            return true;
+        });
+    });
+
+    var app = angular.module('MappingApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.program = '@ViewBag.programName90';
+        $scope.kegiatan = '@ViewBag.kegiatanName90';
+    });
+
+    $('.flexdatalistprogram').flexdatalist({
+        cache: false,
+        searchContain: true,
+        textProperty: '{NUPRGRM90}' + ' ' + '{NMPRGRM90}',
+        valueProperty: 'iso2',
+        minLength: 0,
+        focusFirstResult: true,
+        selectionRequired: true,
+        noResultsText: 'Tidak ada hasil untuk "{keyword}"',
+        visibleProperties: ["NUPRGRM90", "NMPRGRM90"],
+        searchIn: ["NUPRGRM90", "NMPRGRM90"],
+        url: '@Url.Content("~/")' + 'Mapping/GetMPGRM90/',
+        //params: paramsKey,
+        relatives: '#relative'
+    }).on("select:flexdatalist", function (event, data) {
+        $('#IDProgram90Selected').val(data.IDPRGRM90);
+        $('#NameProgram90Selected').val(data.NMPRGRM90);
+
+        $('#kegiatan').val('').parent().find("ul.flexdatalist-multiple li.value").remove();
+    });
+
+    var paramsKeyKeg = { idPgrm90:"" };
+    $('.flexdatalistkegiatan').on('before:flexdatalist.data', function (event) {
+        var prg = $('#IDProgram90Selected').val();
+        paramsKeyKeg = { idPgrm90: prg }
+        $('.flexdatalistkegiatan').flexdatalist('params', paramsKeyKeg);
+    });
+
+    $('.flexdatalistkegiatan').flexdatalist({
+        cache: false,
+        searchContain: true,
+        textProperty: '{NUKEG90}' + ' ' + '{NMKEG90}',
+        valueProperty: 'iso2',
+        minLength: 0,
+        focusFirstResult: true,
+        selectionRequired: true,
+        noResultsText: 'Tidak ada hasil untuk "{keyword}"',
+        visibleProperties: ["NUKEG90", "NMKEG90"],
+        searchIn: ["NUKEG90", "NMKEG90"],
+        url: '@Url.Content("~/")' + 'Mapping/GetMKEGIATAN90/',
+        params: paramsKeyKeg,
+        relatives: '#relative'
+    }).on("select:flexdatalist", function (event, data) {
+        $('#IDKegiatan90Selected').val(data.IDKEG90);
+        $('#NameKegiatan90Selected').val(data.NMKEG90);
+    });
+
+</script>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="@Url.Content("~/Content/template/img/favico.png")" rel="shortcut icon" type="image/x-icon" />
+    <title>@ViewBag.Title - Sistem Informasi Evaluasi Kinerja Pemerintah Kota Bengkalis</title>
+    @Styles.Render("~/Content/template/css")
+</head>
+<body style="background-image:url(Content/template/img/body-bg.png)">
+	@Scripts.Render("~/Content/template/js")
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container" style="margin-right:inherit;">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+
+				<a class="brand" href="index.html">
+					<img src="~/Content/template/img/bengkalis/pemda-bengkalis2.png" style="padding-top:8px;padding-bottom:12px;" alt="img" />
+					&nbsp; Sistem Informasi Evaluasi Kinerja Pemerintah Kota Bengkalis
+				</a>
+			</div> <!-- /container -->
+		</div> <!-- /navbar-inner -->
+	</div> <!-- /navbar -->
+	@RenderBody()
+
+	@RenderSection("scripts", required: false)
+</body>
+</html>

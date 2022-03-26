@@ -1,0 +1,206 @@
+﻿@model SIEVK.Domain.RPJMD.RPJMDKinerjaKegiatan
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmRealisasi", @ng_app = "RealisasiApp", @data_ng_controller = "validateCtrl" }))
+{
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-file"></i>
+                    <h3>Evaluasi Program - @ViewBag.Method</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => Model.UNITKEY)
+                        @Html.HiddenFor(model => Model.KDTAHAP)
+                        @Html.HiddenFor(model => Model.IDKEG)
+                        @Html.HiddenFor(model => Model.IDPRGRM)
+                        @Html.HiddenFor(model => Model.KINKEGRPJMKEY)
+                        @Html.HiddenFor(model => Model.NUKEG)
+                        @Html.HiddenFor(model => Model.NMKEG)
+
+                        <div class="row">
+                            <div class="span4">
+                                <div class="form-group">
+                                    <label class="control-label" for="KODE">Kode</label>
+                                    <div class="controls" style="padding-top:5px;">
+                                        @Model.NUKEG
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="span8">
+                                <div class="form-group">
+                                    <label class="control-label" for="KEGIATAN">Kegiatan</label>
+                                    <div class="controls" style="padding-top:5px;">
+
+                                        @Model.NMKEG
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="URKIN">Indikator Kinerja</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.URKIN, new { @class = "span4", @rows = "3", @ng_required = "true" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="KINLALU">Target Kinerja Lalu<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.KINLALU, new { @class = "span3", @ng_required = "true", @ng_model = "KINLALU" })
+                                <span style="color:maroon" ng-show="frmRealisasi.KINLALU.$dirty && frmRealisasi.KINLALU.$invalid">
+                                    <span ng-show="frmRealisasi.KINLALU.$error.required">Kinerja Lalu harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="TARGET1">Target @ViewBag.Tahun1<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.TARGET1, new { @class = "span3", @ng_required = "true", @ng_model = "TARGET1" })
+                                <span style="color:maroon" ng-show="frmRealisasi.TARGET1.$dirty && frmRealisasi.TARGET1.$invalid">
+                                    <span ng-show="frmRealisasi.TARGET1.$error.required">TARGET1 harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="TARGET2">Target @ViewBag.Tahun2<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.TARGET2, new { @class = "span3", @ng_required = "true", @ng_model = "TARGET2" })
+                                <span style="color:maroon" ng-show="frmRealisasi.TARGET2.$dirty && frmRealisasi.TARGET2.$invalid">
+                                    <span ng-show="frmRealisasi.TARGET2.$error.required">TARGET2 harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="TARGET3">Target @ViewBag.Tahun3<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.TARGET3, new { @class = "span3", @ng_required = "true", @ng_model = "TARGET3" })
+                                <span style="color:maroon" ng-show="frmRealisasi.TARGET3.$dirty && frmRealisasi.TARGET3.$invalid">
+                                    <span ng-show="frmRealisasi.TARGET3.$error.required">TARGET3 harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="TARGET4">Target @ViewBag.Tahun4<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.TARGET4, new { @class = "span3", @ng_required = "true", @ng_model = "TARGET4" })
+                                <span style="color:maroon" ng-show="frmRealisasi.TARGET4.$dirty && frmRealisasi.TARGET4.$invalid">
+                                    <span ng-show="frmRealisasi.TARGET4.$error.required">TARGET4 harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="TARGET5">Target @ViewBag.Tahun5<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.TARGET5, new { @class = "span3", @ng_required = "true", @ng_model = "TARGET5" })
+                                <span style="color:maroon" ng-show="frmRealisasi.TARGET5.$dirty && frmRealisasi.TARGET5.$invalid">
+                                    <span ng-show="frmRealisasi.TARGET5.$error.required">TARGET5 harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="TARGET6">Target @ViewBag.Tahun6<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.TARGET6, new { @class = "span3", @ng_required = "true", @ng_model = "TARGET6" })
+                                <span style="color:maroon" ng-show="frmRealisasi.TARGET6.$dirty && frmRealisasi.TARGET6.$invalid">
+                                    <span ng-show="frmRealisasi.TARGET6.$error.required">TARGET6 harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="TARGETAKHIR">Target Akhir<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.TARGETAKHIR, new { @class = "span3", @ng_required = "true", @ng_model = "TARGETAKHIR" })
+                                <span style="color:maroon" ng-show="frmRealisasi.TARGETAKHIR.$dirty && frmRealisasi.TARGETAKHIR.$invalid">
+                                    <span ng-show="frmRealisasi.TARGETAKHIR.$error.required">Target Akhir harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="KET">Keterangan</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.KET, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" ng-disabled="frmRealisasi.$invalid">
+                                <i class=" btn-icon-only icon-save">
+                                </i>Simpan
+                            </button>
+
+                            <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>
+
+<script>                                                                            
+    jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/RPJMD/RealisasiKinerjaKegiatan?unitKey=" + Model.UNITKEY + "&kdTahap=" + Model.KDTAHAP + "&idPrgrm=" + Model.IDPRGRM + "&IDKeg=" + Model.IDKEG + "&kinkegrpjmkey=" + Model.KINKEGRPJMKEY))"); });
+
+    $(function () {
+        $('.form-horizontal').submit(function () {
+            $("input[type='submit']", this)
+              .val("Please Wait...")
+              .attr('disabled', 'disabled');
+            return true;
+        });
+    });
+
+    var app = angular.module('RealisasiApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.URKIN = '@Model.URKIN';
+        $scope.KINLALU = '@Model.KINLALU';
+        $scope.TARGET1 = '@Model.TARGET1';
+        $scope.TARGET2 = '@Model.TARGET2';
+        $scope.TARGET3 = '@Model.TARGET3';
+        $scope.TARGET4 = '@Model.TARGET4';
+        $scope.TARGET5 = '@Model.TARGET5';
+        $scope.TARGET6 = '@Model.TARGET6';
+        $scope.TARGETAKHIR = '@Model.TARGETAKHIR';
+    });
+
+    jQuery(document).ready(function () {
+        jQuery(".currency").autoNumeric('init', { aSep: '.', aDec: ',', aSign: ' ', mDec: 0 });
+    })
+
+</script>

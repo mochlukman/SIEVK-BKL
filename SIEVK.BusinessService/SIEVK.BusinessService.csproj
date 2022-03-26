@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1D732A34-7D91-4C39-BFA8-77B12DC8018F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIEVK.BusinessService</RootNamespace>
+    <AssemblyName>SIEVK.BusinessService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APBD\APBDKinKegUnitService.cs" />
+    <Compile Include="APBD\APBDRealisasiCapaianKinerjaProgramAPBDService.cs" />
+    <Compile Include="APBD\APBDRealisasiCapaianProgramService.cs" />
+    <Compile Include="APBD\APBDKegUnitService.cs" />
+    <Compile Include="APBD\APBDRealisasiKinerjaAPBDService.cs" />
+    <Compile Include="APBD\APBDCatatanLaporanRealisasiPemdaService.cs" />
+    <Compile Include="APBD\APBDCatatanLaporanRealisasiSKPDService.cs" />
+    <Compile Include="Common\GeneralService.cs" />
+    <Compile Include="Common\OrderByHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\GolonganService.cs" />
+    <Compile Include="Common\PrivilegeInfoService.cs" />
+    <Compile Include="Common\SecurityService.cs" />
+    <Compile Include="Common\PegawaiService.cs" />
+    <Compile Include="Common\UsersService.cs" />
+    <Compile Include="Common\MenuService.cs" />
+    <Compile Include="Common\UserGroupsService.cs" />
+    <Compile Include="Dashboard\DashboardService.cs" />
+    <Compile Include="Mapping\MappingKegiatan13_90Service.cs" />
+    <Compile Include="Mapping\MappingKegiatan90_50Service.cs" />
+    <Compile Include="Mapping\MappingReferenceService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RENJA\RENJAEvaluasiBijakService.cs" />
+    <Compile Include="RENJA\RENJAEvaluasiKendaliService.cs" />
+    <Compile Include="RENJA\RENJAEvaluasiSimpulService.cs" />
+    <Compile Include="RENSTRA\RENSTRAEvaluasiBijakService.cs" />
+    <Compile Include="RENSTRA\RENSTRAEvaluasiSimpulService.cs" />
+    <Compile Include="RKPD\RKPDCatatanLaporanRealisasiSKPDService.cs" />
+    <Compile Include="RKPD\RKPDCatatanLaporanRealisasiPemdaService.cs" />
+    <Compile Include="RKPD\RKPDCatatanLaporanRealisasiService.cs" />
+    <Compile Include="RKPD\RKPDEvaluasiBijakService.cs" />
+    <Compile Include="RKPD\RKPDEvaluasiSimpulService.cs" />
+    <Compile Include="RKPD\RKPDRealisasiKinerjaKegiatanService.cs" />
+    <Compile Include="RKPD\RKPDRealisasiKinerjaProgramService.cs" />
+    <Compile Include="RKPD\RKPDRealisasiProgramService.cs" />
+    <Compile Include="RPJMD\RPJMDKinerjaProgramService.cs" />
+    <Compile Include="RPJMD\RPJMDEvaluasiBijakService.cs" />
+    <Compile Include="RPJMD\RPJMDEvaluasiSimpulService.cs" />
+    <Compile Include="RPJMD\RPJMDKinerjaKegiatanService.cs" />
+    <Compile Include="RPJMD\RPJMDKegiatanService.cs" />
+    <Compile Include="RPJMD\RPJMDProgramService.cs" />
+    <Compile Include="RPJMD\RPJMDRealisasiKinerjaKegiatanService.cs" />
+    <Compile Include="RPJMD\RPJMDRealisasiKinerjaProgramService.cs" />
+    <Compile Include="RPJMD\RPJMDRealisasiKegiatanService.cs" />
+    <Compile Include="RPJMD\RPJMDCatatanLaporanEvaluasiService.cs" />
+    <Compile Include="RPJMD\RPJMDRealisasiProgramService.cs" />
+    <Compile Include="RPJPD\RPJPDEvaluasiBijakService.cs" />
+    <Compile Include="RPJPD\RPJPDEvaluasiSimpulService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIEVK.BusinessData\SIEVK.BusinessData.csproj">
+      <Project>{f6f90dd1-9f17-48f6-b560-4822238bcd14}</Project>
+      <Name>SIEVK.BusinessData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIEVK.Domain\SIEVK.Domain.csproj">
+      <Project>{7910a7d1-2801-450b-b5fa-5f73ec951c21}</Project>
+      <Name>SIEVK.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

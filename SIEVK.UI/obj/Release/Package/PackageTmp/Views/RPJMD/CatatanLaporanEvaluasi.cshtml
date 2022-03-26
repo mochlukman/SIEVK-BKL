@@ -1,0 +1,221 @@
+﻿@{
+    ViewBag.Title = "RPJMD - Catatan Laporan Evaluasi";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script>
+        var deleteStatus = true;
+        var kdTahun = '';
+        var noCat = '';
+
+        $(document).ready(function () {
+
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $("#list").DataTable({
+            "processing": false, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": true, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "pageLength": 10,
+            "scrollCollapse": true,
+            "scrollX": true,
+            "scrollY": "350px", //cukup untuk 10 row
+            "ajax": {
+                //"url": rootUrl + "/RPJMD/LoadDataRealisasiProgram",
+                "url": '@Url.Content("~/")' + "RPJMD/LoadDataCatatanLaporanEvaluasi",
+                "type": "POST",
+                "datatype": "json",
+                "data": {
+                    "kdtahun": function () { return $('#TahunAnggaranCombo').val() }
+                }
+            },
+            "columnDefs":
+            [
+            {
+                "targets": [0, 2, 3],
+                "searchable": true,
+                "orderable": true,
+            },
+            {
+                "targets": [4],
+                "visible": false,
+                "searchable": false,
+            },
+             {
+                 "targets": [5],
+                 "className": "text-center",
+                 "searchable": false,
+                 "orderable": false
+             }
+            ],
+            "fixedColumns": {
+                "leftColumns": 0
+            },
+            "columns": [
+                  { "data": "NMTAHUN", "name": "NMTAHUN", "autoWidth": true },
+                  { "data": "NOCTT", "name": "NOCTT", "autoWidth": true },
+                  { "data": "NMCTT", "name": "NMCTT", "autoWidth": true },
+                  { "data": "ISICTT", "name": "ISICTT", "autoWidth": true },
+                  { "data": "KDTAHUN", "name": "KDTAHUN", "autoWidth": true }, //bisa ditamhakan title
+                  {
+                      "render": function (data, type, full, meta) {
+                          return '<a class="btn btn-md btn-success icon-edit" data-toggle="tooltip" data-placement="top" title="Ubah Catatan" href="@Url.Action("CatatanLaporanEvaluasiEdit", "RPJMD")' + "?kdtahun=" + full.KDTAHUN + "&nocat=" + full.NOCTT + '"></a>&nbsp;' +
+                          "<a class='OpenModal btn btn-md btn-danger icon-trash' data-toggle='tooltip' data-placement='top' title='Hapus Catatan' data-nocat='" + full.NOCTT + "' data-kdtahun='" + full.KDTAHUN + "' href='#confirm-delete'></a>";
+
+                      }
+                  },
+            ]
+
+        });
+    });
+
+
+    </script>
+
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmRealisasiProgram" }))
+    {
+        <div class="span12">
+           @if (!Html.ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationSummary()
+            </div>
+        }
+
+        @if (ViewBag.Info != "" && ViewBag.Info != null)
+        {
+            <div class="alert alert-success">@ViewBag.Info</div>
+        }
+
+        <div class="alert-delete"></div>
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-list-alt"></i>
+                    <h3>Evaluasi RPJMD - Catatan Laporan Evaluasi</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="control-label" for="TahunAnggaran">Tahun Anggaran</label>
+                            <div class="controls">
+                                @Html.DropDownList("TahunAnggaranCombo", null, new { @class = "form-control input-sm span2" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="controls-filter">
+                                <button type="button" class="btn btn-primary" id="btnCari" ><i class="btn-icon-only icon-search"> Cari </i></button>
+                                <button type="button" class="btn btn-success" id="btnTambah"><i class="btn-icon-only icon-plus"> Tambah </i></button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="span12">
+            <div class="widget">
+                <div class="widget-content">
+                    <table id="list" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Tahun</th>
+                                <th>No Catatan</th>
+                                <th>Nama Catatan</th>
+                                <th>Isi Catatan</th>
+                                <th>Kode Tahun</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+         <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Konfirmasi Hapus</h4>
+                </div>
+
+                <div class="modal-body">
+                    <p>Apakah anda yakin menghapus data catatan <b><i class="nocat"></i></b> ?</p>
+                    <p class="debug-url"></p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-danger btn-ok">Hapus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</body>
+</html>
+
+<script>
+
+    $("#btnCari").click(function () {
+        var table = $("#list").DataTable();
+        table.ajax.reload();
+    });
+
+    jQuery("#btnTambah").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/RPJMD/CatatanLaporanEvaluasiCreate/"))") });
+
+    //delete function
+    $(document).on("click", ".btn-ok", function (e) {
+        if (deleteStatus == true) //only 1 working in 1 click ok function
+        {
+            var url = '@Url.Content("~/")' + "RPJMD/DeleteCatatanLaporanEvaluasi";
+            $.post(url, { kdtahun: kdTahun, nocat: noCat}, function (data) {
+                if (data == "Deleted") {
+                    oTable = $('#list').DataTable();
+                    oTable.draw();
+                    // add alert after delete
+                    addAlert();
+                }
+                else {
+                    alert("Terjadi kesalahan! Error" + data);
+                }
+            });
+            deleteStatus = false;
+            $('#confirm-delete').modal('hide');//if success then hide
+        }
+
+    })
+
+    $(document).on("click", ".OpenModal", function (e) {
+        e.preventDefault();
+        deleteStatus = true;
+        var _self = $(this);
+        var nocat = _self.data('nocat');
+        var kdtahun = _self.data('kdtahun');
+        noCat = nocat;
+        kdTahun = kdtahun;
+        $(".nocat").text(nocat);
+
+        $(_self.attr('href')).modal('show');
+    });
+
+    function addAlert() {
+        var nocat = $(".nocat").text();
+        var div = document.createElement('div');
+        div.className = 'alert alert-success';
+        div.innerHTML =
+            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+                 Catatan <b>' + nocat + '</b> berhasil dihapus.';
+
+        document.getElementsByClassName("alert-delete")[0].appendChild(div);
+    }
+
+ 
+    </script>

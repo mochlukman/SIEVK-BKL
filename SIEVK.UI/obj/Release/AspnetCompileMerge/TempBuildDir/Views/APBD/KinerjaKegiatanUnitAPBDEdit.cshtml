@@ -1,0 +1,117 @@
+﻿@model SIEVK.Domain.APBD.APBDKinKegUnit
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmRealisasi", @ng_app = "RealisasiApp", @data_ng_controller = "validateCtrl" }))
+{
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <div class="widget" >
+                <div class="widget-header">
+                    <i class="icon-file"></i>
+                    <h3>Kinerja Kegiatan Unit APBD - @ViewBag.Method</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => Model.UNITKEY)
+                        @Html.HiddenFor(model => Model.KDTAHAP)
+                        @Html.HiddenFor(model => Model.KDTAHUN)
+                        @Html.HiddenFor(model => Model.IDKEG)
+                        <input type="hidden" name="IDPRGRM" value="@ViewBag.idPrgrm" />
+
+                        
+                        <div class="form-group">
+                            <label class="control-label" for="NoUrkin">Nomor<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.NOURKIN, new { @class = "span3", @ng_required = "true", @ng_model = "NOURKIN" })
+                                <span style="color:maroon" ng-show="frmRealisasi.NOURKIN.$dirty && frmRealisasi.NOURKIN.$invalid">
+                                    <span ng-show="frmRealisasi.NOURKIN.$error.required">Nomor harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+                                                
+                        <div class="form-group">
+                            <label class="control-label" for="Urkin">Kinerja</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.URKIN, new { @class = "span3", @ng_model = "URKIN" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="Target">Target</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.TARGET, new { @class = "span3", @ng_model = "TARGET" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="Realisasi">Realisasi</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.REALISASI, new { @class = "span3", @ng_model = "REALISASI" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="ket">Keterangan</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.KET, new { @class = "span3", @rows = "3", @ng_model = "KET" })
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" ng-disabled="frmRealisasi.$invalid">
+                                <i class=" btn-icon-only icon-save">
+                                </i>Simpan
+                            </button>
+
+                            <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>
+
+<script>                                                                            
+    jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/APBD/RealisasiKinerjaAPBD?unitKey=" + Model.UNITKEY + "&kdTahap=" + Model.KDTAHAP + "&kdTahun=" + Model.KDTAHUN + "&idPrgrm=" + ViewBag.idPrgrm + "&idKeg=" + Model.IDKEG))"); });
+
+    $(function () {
+        $('.form-horizontal').submit(function () {
+            $("input[type='submit']", this)
+              .val("Please Wait...")
+              .attr('disabled', 'disabled');
+            return true;
+        });
+    });
+
+    var app = angular.module('RealisasiApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.NOURKIN = '@Model.NOURKIN';
+        $scope.URKIN = '@(Model.URKIN != null ? Model.URKIN.Replace(Environment.NewLine,"") : Model.URKIN)';
+        $scope.TARGET = '@Model.TARGET';
+        $scope.REALISASI = '@Model.REALISASI';
+        $scope.KET = '@(Model.KET != null ? Model.KET.Replace(Environment.NewLine, "") : Model.KET)';
+    });
+
+</script>

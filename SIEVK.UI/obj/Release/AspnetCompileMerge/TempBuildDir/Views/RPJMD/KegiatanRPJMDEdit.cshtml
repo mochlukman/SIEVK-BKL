@@ -1,0 +1,190 @@
+﻿@model SIEVK.Domain.RPJMD.RPJMDKegiatan
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmRealisasi", @ng_app = "RealisasiApp", @data_ng_controller = "validateCtrl" }))
+{
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-file"></i>
+                    <h3>Evaluasi Program - @ViewBag.Method</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => Model.UNITKEY)
+                        @Html.HiddenFor(model => Model.KDTAHAP)
+                        @Html.HiddenFor(model => Model.IDKEG)
+                        @Html.HiddenFor(model => Model.IDPRGRM)
+                        @Html.HiddenFor(model => Model.NUKEG)
+                        @Html.HiddenFor(model => Model.NMKEG)
+
+                        <div class="row">
+                            <div class="span4">
+                                <div class="form-group">
+                                    <label class="control-label" for="KODE">Kode</label>
+                                    <div class="controls" style="padding-top:5px;">                                        
+                                        @Model.NUKEG
+                                       
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="span8">
+                                <div class="form-group">
+                                    <label class="control-label" for="KEGIATAN">Kegiatan</label>
+                                    <div class="controls" style="padding-top:5px;">
+                                        
+                                            @Model.NMKEG
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="PAGULALU">Pagu Lalu<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.PAGULALU, new { @class = "span3 currency", @ng_required = "true", @ng_model = "PAGULALU" })
+                                <span style="color:maroon" ng-show="frmRealisasi.PAGULALU.$dirty && frmRealisasi.PAGULALU.$invalid">
+                                    <span ng-show="frmRealisasi.PAGULALU.$error.required">PAGU Lalu harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="PAGU1">Pagu @ViewBag.Tahun1<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.PAGU1, new { @class = "span3 currency", @ng_required = "true", @ng_model = "PAGU1" })
+                                <span style="color:maroon" ng-show="frmRealisasi.PAGU1.$dirty && frmRealisasi.PAGU1.$invalid">
+                                    <span ng-show="frmRealisasi.PAGU1.$error.required">PAGU1 Lalu harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="PAGU2">Pagu @ViewBag.Tahun2<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.PAGU2, new { @class = "span3 currency", @ng_required = "true", @ng_model = "PAGU2" })
+                                <span style="color:maroon" ng-show="frmRealisasi.PAGU2.$dirty && frmRealisasi.PAGU2.$invalid">
+                                    <span ng-show="frmRealisasi.PAGU2.$error.required">PAGU2 Lalu harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="PAGU3">Pagu @ViewBag.Tahun3<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.PAGU3, new { @class = "span3 currency", @ng_required = "true", @ng_model = "PAGU3" })
+                                <span style="color:maroon" ng-show="frmRealisasi.PAGU3.$dirty && frmRealisasi.PAGU3.$invalid">
+                                    <span ng-show="frmRealisasi.PAGU3.$error.required">PAGU3 Lalu harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="PAGU4">Pagu @ViewBag.Tahun4<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.PAGU4, new { @class = "span3 currency", @ng_required = "true", @ng_model = "PAGU4" })
+                                <span style="color:maroon" ng-show="frmRealisasi.PAGU4.$dirty && frmRealisasi.PAGU4.$invalid">
+                                    <span ng-show="frmRealisasi.PAGU4.$error.required">PAGU4 Lalu harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="PAGU5">Pagu @ViewBag.Tahun5<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.PAGU5, new { @class = "span3 currency", @ng_required = "true", @ng_model = "PAGU5" })
+                                <span style="color:maroon" ng-show="frmRealisasi.PAGU5.$dirty && frmRealisasi.PAGU5.$invalid">
+                                    <span ng-show="frmRealisasi.PAGU5.$error.required">PAGU5 Lalu harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="PAGU6">Pagu @ViewBag.Tahun6<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.PAGU6, new { @class = "span3 currency", @ng_required = "true", @ng_model = "PAGU6" })
+                                <span style="color:maroon" ng-show="frmRealisasi.PAGU6.$dirty && frmRealisasi.PAGU6.$invalid">
+                                    <span ng-show="frmRealisasi.PAGU6.$error.required">PAGU6 Lalu harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="PAGUAKHIR">Pagu Akhir<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.PAGUAKHIR, new { @class = "span3 currency", @ng_required = "true", @ng_model = "PAGUAKHIR" })
+                                <span style="color:maroon" ng-show="frmRealisasi.PAGUAKHIR.$dirty && frmRealisasi.PAGUAKHIR.$invalid">
+                                    <span ng-show="frmRealisasi.PAGUAKHIR.$error.required">PAGU Akhir Lalu harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" ng-disabled="frmRealisasi.$invalid">
+                                <i class=" btn-icon-only icon-save">
+                                </i>Simpan
+                            </button>
+
+                            <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                        </div>
+</fieldset>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>
+
+<script>                                                                            
+    jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/RPJMD/RealisasiKegiatan?unitKey=" + Model.UNITKEY + "&kdTahap=" + Model.KDTAHAP + "&IDKeg=" + Model.IDKEG + "&idPrgrm=" + Model.IDPRGRM))"); }); 
+
+    $(function () {
+        $('.form-horizontal').submit(function () {
+            $("input[type='submit']", this)
+              .val("Please Wait...")
+              .attr('disabled', 'disabled');
+            return true;
+        });
+    });
+
+    var app = angular.module('RealisasiApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.PAGULALU = '@Model.PAGULALU';
+        $scope.PAGU1 = '@Model.PAGU1';
+        $scope.PAGU2 = '@Model.PAGU2';
+        $scope.PAGU3 = '@Model.PAGU3';
+        $scope.PAGU4 = '@Model.PAGU4';
+        $scope.PAGU5 = '@Model.PAGU5';
+        $scope.PAGU6 = '@Model.PAGU6';
+        $scope.PAGUAKHIR = '@Model.PAGUAKHIR';
+    });
+
+    jQuery(document).ready(function () {
+        jQuery(".currency").autoNumeric('init', { aSep: '.', aDec: ',', aSign: ' ', mDec: 0 });
+    })
+
+</script>

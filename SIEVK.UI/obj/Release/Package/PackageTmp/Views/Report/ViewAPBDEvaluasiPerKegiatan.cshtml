@@ -1,0 +1,33 @@
+﻿@using ReportViewerForMvc;
+@using Microsoft.Reporting.WebForms
+@model ReportViewer
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Evaluasi Kinerja dan Keuangan Kegiatan</title>
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+    <script type="text/javascript">
+        //$(function () {
+        //    //Instead of index.html, path to your .aspx file here
+        //    $('#dataReport').load('ReportViewer.aspx');
+        //});
+    </script>
+</head>
+<body>
+    
+    <div class="span12">
+        <div class="widget">
+            <div class="widget-content" id="dataReport">
+                @Html.ReportViewer(Model as Microsoft.Reporting.WebForms.ReportViewer, new { scrolling = "yes", width = "100%" })
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

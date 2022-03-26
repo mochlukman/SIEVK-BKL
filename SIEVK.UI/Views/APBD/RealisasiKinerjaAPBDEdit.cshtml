@@ -1,0 +1,191 @@
+﻿@model SIEVK.Domain.APBD.APBDKinerja
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmRealisasi", @ng_app = "RealisasiApp", @data_ng_controller = "validateCtrl" }))
+{
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <div class="widget" >
+                <div class="widget-header">
+                    <i class="icon-file"></i>
+                    <h3>Evaluasi Kinerja APBD - @ViewBag.Method</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => Model.UNITKEY)
+                        @Html.HiddenFor(model => Model.KDTAHAP)
+                        @Html.HiddenFor(model => Model.KDTAHUN)
+                        @Html.HiddenFor(model => Model.IDKEG)
+                        <input type="hidden" name="IDPRGRM" value="@ViewBag.idPrgrm" />
+
+                        <div class="form-group">
+                            <label class="control-label" for="KDTRWN">Periode<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls" style="padding-top:5px;">
+                                @if (ViewBag.Method == "Edit")
+                                {
+                                    @Model.NMTRWN
+                                    <input type="hidden" name="TriwulanCombo" value="@Model.KDTRWN" />
+                                }
+                                else
+                                {
+                                    @Html.DropDownList("TriwulanCombo", null, new { @class = "form-control input-sm span2" })
+                                    <span style="color:maroon" ng-show="frmRealisasi.KDTRWN.$dirty && frmRealisasi.KDTRWN.$invalid">
+                                        <span ng-show="frmRealisasi.KDTRWN.$error.required">Periode Triwulan harus diisi</span>
+                                    </span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="REAL1">Realisasi Anggaran<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.REALNUM, new { @class = "span3 currencyminus", @ng_required = "true", @ng_model = "REALNUM" })
+                                <span style="color:maroon" ng-show="frmRealisasi.REALNUM.$dirty && frmRealisasi.REALNUM.$invalid">
+                                    <span ng-show="frmRealisasi.REALNUM.$error.required">Realisasi Anggaran harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="realisasi3">Realisasi Fisik (%)<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.REALFISIK, new { @class = "span3 currency", @ng_required = "true", @ng_model = "REALFISIK" })
+                                <span style="color:maroon" ng-show="frmRealisasi.REALFISIK.$dirty && frmRealisasi.REALFISIK.$invalid">
+                                    <span ng-show="frmRealisasi.REALFISIK.$error.required">Realisasi Fisik harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="span4">
+                                <div class="form-group">
+                                    <label class="control-label" for="REALSTR">Realisasi Kinerja<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.REALSTR, new { @class = "span3 currency", @ng_required = "true", @ng_model = "REALSTR"})
+                                        <span style="color:maroon" ng-show="frmRealisasi.REALSTR.$dirty && frmRealisasi.REALSTR.$invalid">
+                                            <span ng-show="frmRealisasi.REALSTR.$error.required">Realisasi Kinerja harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="span8">
+                                <div class="form-group">
+                                    <label class="control-label" for="SATUAN">Satuan<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.SATUAN, new { @class = "span3", @ng_required = "true", @ng_model = "SATUAN" })
+                                        <span style="color:maroon" ng-show="frmRealisasi.SATUAN.$dirty && frmRealisasi.SATUAN.$invalid">
+                                            <span ng-show="frmRealisasi.SATUAN.$error.required">Satuan harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="span4">
+                                <div class="form-group">
+                                    <label class="control-label" for="REALSTR1">Realisasi Kinerja 1<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.REALSTR1, new { @class = "span3 currency", @ng_required = "true", @ng_model = "REALSTR1" })
+                                        <span style="color:maroon" ng-show="frmRealisasi.REALSTR.$dirty && frmRealisasi.REALSTR.$invalid">
+                                            <span ng-show="frmRealisasi.REALSTR.$error.required">Realisasi Kinerja harus diisi</span>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="span8">
+                                <div class="form-group">
+                                    <label class="control-label" for="SATUAN1">Satuan 1<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.SATUAN1, new { @class = "span3", @ng_required = "true", @ng_model = "SATUAN1" })
+                                        <span style="color:maroon" ng-show="frmRealisasi.SATUAN.$dirty && frmRealisasi.SATUAN.$invalid">
+                                            <span ng-show="frmRealisasi.SATUAN.$error.required">Satuan harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="ket">Masalah</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.MASALAH, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="ctt">Solusi</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.SOLUSI, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" ng-disabled="frmRealisasi.$invalid">
+                                <i class=" btn-icon-only icon-save">
+                                </i>Simpan
+                            </button>
+
+                            <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>
+
+<script>                                                                            
+    jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/APBD/RealisasiKinerjaAPBD?unitKey=" + Model.UNITKEY + "&kdTahap=" + Model.KDTAHAP + "&kdTahun=" + Model.KDTAHUN + "&idPrgrm=" + ViewBag.idPrgrm + "&idKeg=" + Model.IDKEG))"); });
+
+    $(function () {
+        $('.form-horizontal').submit(function () {
+            $("input[type='submit']", this)
+              .val("Please Wait...")
+              .attr('disabled', 'disabled');
+            return true;
+        });
+    });
+
+    var app = angular.module('RealisasiApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.REALNUM = '@Model.REALNUM';
+        $scope.REALFISIK = '@Model.REALFISIK';
+        $scope.SATUAN = '@Model.SATUAN';
+        $scope.REALSTR = '@Model.REALSTR';
+        $scope.REALSTR1 = '@Model.REALSTR1';
+        $scope.SATUAN1 = '@Model.SATUAN1';
+        $scope.MASALAH = '@(Model.MASALAH != null ? Model.MASALAH.Replace(Environment.NewLine,"") : Model.MASALAH)';
+        $scope.SOLUSI = '@(Model.SOLUSI != null ? Model.SOLUSI.Replace(Environment.NewLine, "") : Model.SOLUSI)';
+        
+    });
+
+    jQuery(document).ready(function () {
+        jQuery(".currency").autoNumeric('init', { aSep: ',', aDec: '.', aSign: ' ', mDec: 2 });
+        jQuery(".currencyminus").autoNumeric('init', { aSep: ',', aDec: '.', aSign: ' ', mDec: 2, vMin: '-999999999999.99' });
+    })
+
+</script>

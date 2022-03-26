@@ -1,0 +1,257 @@
+﻿@{
+    ViewBag.Title = "Dashboard - Grafik Penyerapan Fisik";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmRealisasiProgram" }))
+    {
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            @if (ViewBag.Info != "" && ViewBag.Info != null)
+            {
+                <div class="alert alert-success">@ViewBag.Info</div>
+            }
+
+
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-list-alt"></i>
+                    <h3>Dashboard - Grafik Penyerapan Fisik</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="control-label" for="TahapanCombo">Tahapan</label>
+                            <div class="controls-filter">
+                                @Html.DropDownList("TahapanCombo", null, new { @class = "form-control input-sm span2" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TahunAnggaranCombo">Tahun Anggaran</label>
+                            <div class="controls-filter">
+                                @Html.DropDownList("TahunAnggaranCombo", null, new { @class = "form-control input-sm span2" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TriwulanCombo">Tahun Anggaran</label>
+                            <div class="controls-filter">
+                                @Html.DropDownList("TriwulanCombo", null, new { @class = "form-control input-sm span2" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="controls-filter">
+                                <button type="button" class="btn btn-primary" id="btnCari"><i class="btn-icon-only icon-search"> Generate </i></button>
+                                @*<button type="button" class="btn btn-primary" id="btnSort"><i class="btn-icon-only icon-search"> Sort </i></button>*@
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="span12">
+            <div class="widget">
+                <div id="chartContent" class="widget-content">
+                    <canvas id="chart1"></canvas>
+                </div>
+            </div>
+        </div>
+     }
+</body>
+</html>
+
+<script>
+    var barchart = null;
+
+    $(function () {
+        displayData();        
+    });
+
+    function displayData() {
+        var _selectedval1 = $("#TriwulanCombo").find(':selected').val();
+        var _selectedval2 = $("#TahunAnggaranCombo").find(':selected').val();
+        var _selectedval3 = $("#TahapanCombo").find(':selected').val();
+        displayChartBar('@Url.Content("~/")' + "Dashboard/GetDashboardPenyerapanFisikData", _selectedval1, _selectedval2, _selectedval3, "#chart1");
+    };
+
+    function displayDataSort() {
+        var _selectedval1 = $("#TriwulanCombo").find(':selected').val();
+        var _selectedval2 = $("#TahunAnggaranCombo").find(':selected').val();
+        var _selectedval3 = $("#TahapanCombo").find(':selected').val();
+        displayChartBarSort('@Url.Content("~/")' + "Dashboard/GetSortData", _selectedval1, _selectedval2, _selectedval3, "ASC", "#chart1");
+    };
+
+    function displayChartBar(urldata, kdtriwulan, kdtahun, kdtahap, selector) {
+        jQuery.post(
+            urldata,
+            {
+                kdTriwulan: kdtriwulan,
+                kdTahun: kdtahun,
+                kdTahap: kdtahap
+            }
+            , function (data) {
+                createChartBar(selector, data);
+            }
+        );
+    }
+
+    function displayChartBarSort(urldata, kdtriwulan, kdtahun, kdtahap, sorttype, selector) {
+        jQuery.post(
+            urldata,
+            {
+                kdTriwulan: kdtriwulan,
+                kdTahun: kdtahun,
+                kdTahap: kdtahap,
+                sort: sorttype
+            }
+            , function (data) {
+                createChartBar(selector, data);
+            }
+        );
+    }
+
+    function SetColors(data) {
+        var colors = []
+        for (var i = 0; i < data.length; i++) {
+            var color;
+            if (data[i] <= 50) {
+                color = "red";
+            }
+            else if ((data[i] > 50) & (data[i] <= 65)) {
+                color = "#5C8249";
+            }
+            else if ((data[i] > 65) & (data[i] <= 75)) {
+                color = "yellow";
+            }
+            else if ((data[i] > 75) & (data[i] <= 90)) {
+                color = "#BDC3BA";
+            }
+            else {
+                color = "#58F609";
+            }
+
+            colors[i] = color;
+        }
+
+        return colors
+    }
+
+    function createChartBar(selector, _data) {
+
+        // Split timestamp and data into separate arrays
+        var loclabels = [], locdata = []; loccolor = [];
+        var i = 0;
+        Object.keys(_data).forEach(function (entity) {
+            loclabels.push(_data[entity].NMUNIT);
+            locdata.push(parseFloat(_data[entity].REALISASI));
+            loccolor[i] = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
+            i++;
+        });
+
+        var mydata = {
+            datasets: [
+                {
+                    data: locdata,
+                    backgroundColor: SetColors(locdata),
+                    label: "SKPD Unit (%)"
+                }
+            ],
+            labels: loclabels
+        };
+
+        var myoptions = {
+            responsive: true,
+            responsiveAnimationDuration: 1000,
+            maintainAspectRatio: true,
+            title: { display: true, text: 'GRAFIK PENYERAPAN FISIK' },
+            //maintainAspectRatio: false, //untuk ukuran ar otomatis
+            //aspectRatio: 2,
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: true,
+                        color: "rgba(255,99,132,0.2)"
+                    },
+                    ticks: {
+                        callback: function (value) {
+                            return $.number(value, 2)
+                        },
+                        min: 0.00,
+                        max: 100.00,
+                        stepSize: 10.00
+                    }
+                }],
+                yAxes: [{
+                    stacked: true,
+                    gridLines: {
+                        display: false,
+                        color: "rgba(255,99,132,0.2)"
+                    }
+                }]
+            },
+            tooltips: {
+                callbacks: {
+                    label: function (tooltipItem, chart) {
+                        var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                        return datasetLabel + $.number(tooltipItem.xLabel, 2);
+                        //return datasetLabel + ': Rp ' + $.number(tooltipItem.xLabel, 0);
+                    }
+                }
+            },
+
+            /* Label auf Balken – Werte hinter balken*/
+            plugins: {
+                datalabels: {
+                    color: 'black',
+                    display: function (context) {
+                        return context.dataset.data[context.dataIndex] > 7;
+                    },
+                    font: {
+                        weight: 'bold'
+                    },
+                    formatter: function (value, context) {
+                        return $.number(value, 2) + ' %';
+                    }
+                },
+            }/*Plugins ende*/
+        };
+
+        //var ctx = $(selector);
+        var chartContent = document.getElementById('chartContent');
+        chartContent.innerHTML = '&nbsp;';
+        $('#chartContent').append('<canvas id="chart1" style="height:150vh; width:80vw"><canvas>');
+
+        ctx = $(selector).get(0).getContext("2d");
+        barchart = new Chart(ctx,
+            {                
+                type: 'horizontalBar',
+                data: mydata,
+                options: myoptions
+            });
+    }
+
+    $("#btnCari").click(function () {
+        
+        displayData();       
+        //barchart.refresh();
+    });
+
+    $("#btnSort").click(function () {
+        
+        displayDataSort();  
+        //barchart.refresh();
+    });
+    </script>

@@ -1,0 +1,80 @@
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.exe.config
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.exe
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.pdb
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csprojResolveAssemblyReference.cache
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.Properties.Resources.resources
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csproj.GenerateResource.Cache
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.exe
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.pdb
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessService.dll
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessData.dll
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Domain.dll
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessService.pdb
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessData.pdb
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Domain.pdb
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.Form1.resources
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.exe.config
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.exe
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessService.dll
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessData.dll
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Domain.dll
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessService.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessData.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Domain.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csprojResolveAssemblyReference.cache
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.Form1.resources
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.Properties.Resources.resources
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csproj.GenerateResource.Cache
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.exe
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.exe.config
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.exe
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessService.dll
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessData.dll
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Domain.dll
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessService.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.BusinessData.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\bin\Debug\SIEVK.Domain.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csprojResolveAssemblyReference.cache
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.Form1.resources
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.Properties.Resources.resources
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csproj.GenerateResource.Cache
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.exe
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csprojAssemblyReference.cache
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.exe
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.pdb
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csprojAssemblyReference.cache
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.exe
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.exe.config
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.exe
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\SIEVK.Encryption.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\SIEVK.BusinessService.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\SIEVK.BusinessData.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\SIEVK.Domain.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\System.Web.Mvc.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\System.Web.WebPages.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\System.Web.Razor.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\SIEVK.BusinessService.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\SIEVK.BusinessData.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\SIEVK.Domain.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\System.Web.Mvc.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\System.Web.WebPages.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\System.Web.Razor.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\Microsoft.Web.Infrastructure.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csprojAssemblyReference.cache
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.Form1.resources
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.Properties.Resources.resources
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csproj.GenerateResource.cache
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csproj.CoreCompileInputs.cache
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.csproj.CopyComplete
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.exe
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.Encryption\obj\Debug\SIEVK.Encryption.pdb

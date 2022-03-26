@@ -1,0 +1,195 @@
+﻿@model SIEVK.Domain.RENJA.RENJAEvaluasiKendali
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmEvaluasiKendali", @ng_app = "RealisasiApp", @data_ng_controller = "validateCtrl" }))
+{
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-file"></i>
+                    <h3>Pengendalian dan Evaluasi Pelaksanaan Renja - @ViewBag.Method</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => Model.KDTAHUN)
+                        @Html.HiddenFor(model => Model.UNITKEY)
+                        @Html.HiddenFor(model => Model.KDTAHAP)
+                        <input type="hidden" name="iscrate" value="@ViewBag.isCreate" />
+                        @*<input type="hidden" name="kdTahun" value="@ViewBag.kdTahun" />*@
+
+                        <div class="form-group">
+                            <label class="control-label" for="Unit">Unit Organisasi<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.DropDownList("UnitCombo", null, new { @class = "form-control input-sm span2", @disabled = "disabled" })
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TahunAnggaranCombo">Tahun<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.DropDownList("TahunAnggaranCombo", null, new { @class = "form-control input-sm span2", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TahapanCombo">Tahapan<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.DropDownList("TahapanCombo", null, new { @class = "form-control input-sm span2", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        @{if (ViewBag.isCreate == "false")
+                            {
+                                <div class="form-group">
+                                    <label class="control-label" for="NOMOR">Kode<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.NOMOR, new { @class = "span4", @rows = "3", @ng_required = "true", @ng_model = "NOMOR", @readonly = "readonly" })
+                                        <span style="color:maroon" ng-show="frmEvaluasiKendali.NOMOR.$dirty && frmEvaluasiKendali.NOMOR.$invalid">
+                                            <span ng-show="frmEvaluasiKendali.NOMOR.$error.required">Nomor harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label class="control-label" for="NOMOR">Kode<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.NOMOR, new { @class = "span4", @rows = "3", @ng_required = "true", @ng_model = "NOMOR" })
+                                        <span style="color:maroon" ng-show="frmEvaluasiKendali.NOMOR.$dirty && frmEvaluasiKendali.NOMOR.$invalid">
+                                            <span ng-show="frmEvaluasiKendali.NOMOR.$error.required">Nomor harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+                        <div class="form-group">
+                            <label class="control-label" for="URAIAN">Uraian</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.URAIAN, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TYPE">Type</label>
+                            <div class="controls">
+                                @Html.RadioButtonFor(model => model.TYPE, "H ", new { Checked = "checked" }) <text>Header</text>
+
+                                @Html.RadioButtonFor(model => model.TYPE, "D ") <text>Detil</text>
+
+                                @Html.ValidationMessageFor(model => model.TYPE, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TARGET_RENJA">Target Renja</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.TARGET_RENJA, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TARGET_RKA">Target RKA</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.TARGET_RKA, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="PAGU_RENJA">Pagu Renja</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.PAGU_RENJA, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="PAGU_RKA">Pagu RKA</label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.PAGU_RKA, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="KESESUAIAN">Kesesuaian</label>
+                            <div class="controls">
+                                @Html.RadioButtonFor(model => model.KESESUAIAN, "1", new { Checked = "checked" }) <text>Ya</text>
+
+                                @Html.RadioButtonFor(model => model.KESESUAIAN, "0") <text>Tidak</text>
+
+                                @Html.ValidationMessageFor(model => model.KESESUAIAN, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="MASALAH">Evaluasi</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.MASALAH, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="SOLUSI">Tindak Lanjut</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.SOLUSI, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="KET">Hasil Tindak Lanjut</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.HASIL, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" ng-disabled="frmEvaluasiKendali.$invalid">
+                                <i class=" btn-icon-only icon-save">
+                                </i>Simpan
+                            </button>
+
+                            <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>
+
+<script>                                                                            
+    jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/RENJA/EvaluasiKendali?kdTahun=" + Model.KDTAHUN + "&kdUnit=" + Model.UNITKEY + "&kdTahap=" + Model.KDTAHAP))"); });
+
+    $(function () {
+        $('.form-horizontal').submit(function () {
+            $("input[type='submit']", this)
+              .val("Please Wait...")
+              .attr('disabled', 'disabled');
+            return true;
+        });
+    });
+
+    var app = angular.module('RealisasiApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.NOMOR = '@Model.NOMOR';
+    });
+
+    jQuery(document).ready(function () {
+        jQuery(".currency").autoNumeric('init', { aSep: '.', aDec: ',', aSign: ' ', mDec: 0 });
+    })
+
+</script>

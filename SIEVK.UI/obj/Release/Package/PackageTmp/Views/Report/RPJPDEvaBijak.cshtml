@@ -1,0 +1,47 @@
+﻿
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Pengendalian dan Evaluasi RPJPD</title>
+            <style>
+                .controls {
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            @using (Html.BeginForm("CetakEvaBijakRPJPD", "Report", FormMethod.Post, new { @class = "form-horizontal", @name = "frmReport", @ng_app = "ReportApp", @data_ng_controller = "validateCtrl", target = "_blank" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="span12">
+                    @if (!Html.ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-bar-chart"></i>
+                            <h3>Pengendalian dan Evaluasi RPJPD</h3>
+                        </div>
+                        <div class="widget-content">
+                            <fieldset>                                                           
+                                @*Button Action*@
+                                <div class="form-actions">
+                                    <button type="submit" id="btnSubmit" class="btn btn-primary" ng-disabled="frmReport.$invalid">
+                                        <i class=" btn-icon-only icon-print">
+                                        </i>Cetak
+                                    </button>
+                                </div>
+                            </fieldset>
+                            @*</form>*@
+                        </div>
+                    </div>
+                </div>
+            }
+</body>
+    </html>
+
+  

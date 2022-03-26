@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7910A7D1-2801-450B-B5FA-5F73EC951C21}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIEVK.Domain</RootNamespace>
+    <AssemblyName>SIEVK.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APBD\APBD.cs" />
+    <Compile Include="APBD\APBDCapaianKinerjaProgram.cs" />
+    <Compile Include="APBD\APBDKinerja.cs" />
+    <Compile Include="APBD\APBDKinKegUnit.cs" />
+    <Compile Include="APBD\APBDRealisasiCapaianProgram.cs" />
+    <Compile Include="APBD\APBDCatatanLaporanRealisasi.cs" />
+    <Compile Include="Common\DaftUnit.cs" />
+    <Compile Include="Common\JFAKTOR.cs" />
+    <Compile Include="Common\ErrorLog.cs" />
+    <Compile Include="Common\Menu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\Golongan.cs" />
+    <Compile Include="Common\PrivilegeInfo.cs" />
+    <Compile Include="Common\Program.cs" />
+    <Compile Include="Common\Tahapan.cs" />
+    <Compile Include="Common\TahunAggaran.cs" />
+    <Compile Include="Common\Triwulan.cs" />
+    <Compile Include="Common\Pegawai.cs" />
+    <Compile Include="Dashboard\GrafikPenyerapan.cs" />
+    <Compile Include="Mapping\MappingKegiatan13_90.cs" />
+    <Compile Include="Mapping\MappingKegiatan90_50.cs" />
+    <Compile Include="Mapping\MKEGIATAN.cs" />
+    <Compile Include="Mapping\MKEGIATAN50.cs" />
+    <Compile Include="Mapping\MKEGIATAN90.cs" />
+    <Compile Include="Mapping\MPGRM.cs" />
+    <Compile Include="Mapping\MPGRM50.cs" />
+    <Compile Include="Mapping\MPGRM90.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\UserGroups.cs" />
+    <Compile Include="Common\Users.cs" />
+    <Compile Include="RENJA\RENJAEvaluasiBijak.cs" />
+    <Compile Include="RENJA\RENJAEvaluasiKendali.cs" />
+    <Compile Include="RENJA\RenjaEvaluasiSimpul.cs" />
+    <Compile Include="RENSTRA\RenstraEvaluasiBijak.cs" />
+    <Compile Include="RENSTRA\RENSTRAEvaluasiSimpul.cs" />
+    <Compile Include="RKPD\RKPDCatatanLaporanRealisasi.cs" />
+    <Compile Include="RKPD\RKPDEvaluasiBijak.cs" />
+    <Compile Include="RKPD\RKPDEvaluasiSimpul.cs" />
+    <Compile Include="RKPD\RKPDKinerjaKegiatan.cs" />
+    <Compile Include="RKPD\RKPDKinerjaProgram.cs" />
+    <Compile Include="RKPD\RKPDProgram.cs" />
+    <Compile Include="RPJMD\RPJMDCatatanLaporanEvaluasi.cs" />
+    <Compile Include="RPJMD\RPJMDEvaluasiBijak.cs" />
+    <Compile Include="RPJMD\RPJMDEvaluasiSimpul.cs" />
+    <Compile Include="RPJMD\RPJMDKinerjaKegiatan.cs" />
+    <Compile Include="RPJMD\RPJMDKinerjaProgram.cs" />
+    <Compile Include="RPJMD\RPJMDKegiatan.cs" />
+    <Compile Include="RPJMD\RPJMDProgram.cs" />
+    <Compile Include="RPJPD\RPJPDEvaluasiBijak.cs" />
+    <Compile Include="RPJPD\RPJPDEvaluasiSimpul.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

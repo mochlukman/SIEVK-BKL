@@ -1,0 +1,104 @@
+﻿
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Transfer Data APBD</title>
+            <style>
+                .controls {
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmTerimaData", @ng_app = "APBDApp", @data_ng_controller = "validateCtrl" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="span12">
+                    @if (!Html.ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-retweet"></i>
+                            <h3>Terima Data APBD</h3>
+                        </div>
+                        <div class="widget-content">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="control-label" for="PilihData">Pilih Data</label>
+                                    <div class="controls-filter">
+                                        @Html.DropDownList("DataCombo", null, new { @class = "form-control input-sm span2" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="Unit">Unit Organisasi</label>
+                                    <div class="controls-filter">
+                                        <input type="text" id="unitorganisasi" name="unitorganisasi" ng-invalid ng-model="unitorganisasi" class="form-control input-sm flexdatalist span6" placeholder='Isi Nama Unit Organisasi' required>
+                                        @Html.Hidden("UnitKodeSelected")
+                                        @Html.Hidden("UnitNameSelected")
+                                        <span style="color:maroon" ng-show="frmTerimaData.unitorganisasi.$dirty && frmTerimaData.unitorganisasi.$invalid">
+                                            <span ng-show="frmTerimaData.unitorganisasi.$error.required">Unit Organisasi harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="TahunCombo">Tahun Database</label>
+                                    <div class="controls-filter">
+                                        @Html.DropDownList("TahunCombo", null, new { @class = "form-control input-sm span2" })
+                                    </div>
+                                </div>
+
+                                @*Button Action*@
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="frmTerimaData.$invalid">
+                                        <i class=" btn-icon-only icon-signin">
+                                        </i>Kirim
+                                    </button>
+                                    <button type="button" class="btn btn-default" id="btnReset"><i class="btn-icon-only icon-repeat"> Reset </i></button>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="DownloadFile">Download File</label>
+                                    <div class="controls-filter" style="padding-top:4px;">
+                                        <label for=" download"><a href="~/TransferData">DownloadFile</a></label>
+                                </div>
+                                </div>
+                            </fieldset>
+                            @*</form>*@
+                        </div>
+                    </div>
+                </div>
+            }
+</body>
+    </html>
+
+  <script>
+    $('.flexdatalist').flexdatalist({
+        searchContain: true,
+        textProperty: '{KDUNIT}' + ' ' +'{NMUNIT}',
+        valueProperty: 'iso2',
+        minLength: 1,
+        focusFirstResult: true,
+        selectionRequired: true,
+        noResultsText: 'Tidak ada hasil untuk "{keyword}"',
+        visibleProperties: ["KDUNIT", "NMUNIT"],
+        searchIn: ["KDUNIT", "NMUNIT"],
+        url: '@Url.Content("~/")' + 'Report/GetUnitOrganization/',
+        relatives: '#relative'
+    }).on("select:flexdatalist", function (event, data) {
+        $('#UnitKodeSelected').val(data.UNITKEY);
+        $('#UnitNameSelected').val(data.NMUNIT);
+    });
+
+      var app = angular.module('APBDApp', []);
+      app.controller('validateCtrl', function ($scope) {
+          $scope.unitorganisasi = '@ViewBag.unitOrgName';
+      });
+
+</script>

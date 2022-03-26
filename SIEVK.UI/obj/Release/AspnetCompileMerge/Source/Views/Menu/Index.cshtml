@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "List Menu";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List Menu</title>
+
+    <script>
+        var deleteStatus = true;
+        var IDdelete = 0;
+
+        $(document).ready(function () {
+           
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $("#listmenu").DataTable({
+
+            "processing": true, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": true, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "pageLength": 10,
+            "scrollCollapse": true,
+            "scrollX": true,
+            "scrollY": "350px", //cukup untuk 10 row
+            "ajax": {
+                //"url": rootUrl + "/Menu/LoadDataMenu",
+                "url": '@Url.Content("~/")' + "Menu/LoadDataMenu",
+                "type": "POST",
+                "datatype": "json"
+            },
+
+            "columnDefs":
+            [{
+                "targets": [0],
+                "visible": false,
+                "searchable": false
+            },
+             {
+                 "targets": [5],
+                 "className": "text-center",
+             },
+            {
+                "targets": [6],
+                "searchable": false,
+                "orderable": false,
+                "className": "text-center",
+            }],
+            "fixedColumns": {
+                "leftColumns": 1
+            },
+            "columns": [
+                  { "data": "ID", "name": "ID", "autoWidth": true },
+                  { "data": "ParentName", "name": "ParentName", "autoWidth": true },
+                  { "data": "NavigationLabel", "name": "NavigationLabel", "autoWidth": true },
+                  { "data": "Description", "name": "Description", "autoWidth": true },
+                  { "data": "URL", "name": "Email", "autoWidth": true },
+                  { "data": "Sequence", "name": "Sequence", "autoWidth": true },
+                  {
+                      "render": function (data, type, full, meta)
+                      {
+                          return '<a class="btn btn-md btn-info icon-search" data-toggle="tooltip" data-placement="top" title="Lihat Detail" href="@Url.Action("Detail", "Menu")' + "?ID=" + full.ID + '"></a>'
+                      }
+                  },
+            ]
+
+        });
+    });
+
+
+    </script>
+
+</head>
+<body>
+
+    <div class="span12">
+        @if (!Html.ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationSummary()
+            </div>
+        }
+
+        @if (ViewBag.Info != "" && ViewBag.Info != null)
+        {
+            <div class="alert alert-success">@ViewBag.Info</div>
+        }
+        <div class="widget">
+            <div class="widget-header">
+                <i class="icon-list-alt"></i>
+                <h3>List Menu</h3>
+            </div>
+            <div class="widget-content">
+                <table id="listmenu" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama Parent</th>
+                            <th>Label Navigasi</th>
+                            <th>Deskripsi</th>
+                            <th>URL</th>
+                            <th>Urutan</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        </div>
+
+</body>
+</html>  

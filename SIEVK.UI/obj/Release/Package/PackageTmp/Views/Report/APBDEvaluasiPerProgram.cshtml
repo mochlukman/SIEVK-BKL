@@ -1,0 +1,92 @@
+﻿
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Evaluasi Kinerja dan Keuangan Program</title>
+            <style>
+                .controls {
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            @using (Html.BeginForm("CetakAPBDEvaluasiPerProgram", "Report", FormMethod.Post, new { @class = "form-horizontal", target = "_blank" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="span12">
+                    @if (!Html.ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-bar-chart"></i>
+                            <h3>Evaluasi Kinerja dan Keuangan per Program</h3>
+                        </div>
+                        <div class="widget-content">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="control-label" for="TipeLaporan">Tipe Laporan</label>
+                                    <div class="controls-filter">
+                                        @Html.DropDownList("TipeLaporanCombo", null, new { @class = "form-control input-sm span3" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="TahapanCombo">Tahapan</label>
+                                    <div class="controls-filter">
+                                        @Html.DropDownList("TahapanCombo", null, new { @class = "form-control input-sm span3" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="TahunCombo">Tahun</label>
+                                    <div class="controls-filter">
+                                        @Html.DropDownList("TahunCombo", null, new { @class = "form-control input-sm span3" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="TriwulanCombo">Triwulan</label>
+                                    <div class="controls-filter">
+                                        @Html.DropDownList("TriwulanCombo", null, new { @class = "form-control input-sm span3" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="Tanggal">Tanggal</label>
+                                    <div class="controls-filter">
+                                        @Html.TextBox("FilterDate", string.Empty, new { @class = "form-control input-sm span2" })
+                                    </div>
+                                </div>
+
+                                @*Button Action*@
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class=" btn-icon-only icon-print">
+                                        </i>Cetak
+                                    </button>
+                                </div>
+                            </fieldset>
+                            @*</form>*@
+                        </div>
+
+                    </div>
+                </div>
+            }
+</body>
+</html>
+<script>
+
+    $(function () {
+        $('input[name="FilterDate"]').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true,
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        });
+    });
+</script>

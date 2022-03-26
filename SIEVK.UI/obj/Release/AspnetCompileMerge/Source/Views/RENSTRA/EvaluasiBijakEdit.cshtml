@@ -1,0 +1,147 @@
+﻿@model SIEVK.Domain.RENSTRA.RENSTRAEvaluasiBijak
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmEvaluasiBijak", @ng_app = "RealisasiApp", @data_ng_controller = "validateCtrl" }))
+{
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-file"></i>
+                    <h3>Pengendalian dan Evaluasi Kebijakan terhadap Renstra - @ViewBag.Method</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => Model.UNITKEY)
+                        <input type="hidden" name="iscrate" value="@ViewBag.isCreate" />
+                        @*<input type="hidden" name="kdTahun" value="@ViewBag.kdTahun" />*@
+
+                        <div class="form-group">
+                            <label class="control-label" for="Unit">Unit Organisasi<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.DropDownList("UnitCombo", null, new { @class = "form-control input-sm span2", @disabled = "disabled" })                                
+                            </div>
+
+                        </div>
+                        @{if (ViewBag.isCreate == "false")
+                            {
+                                <div class="form-group">
+                                    <label class="control-label" for="NOMOR">Nomor<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.NOMOR, new { @class = "span4", @rows = "3", @ng_required = "true", @ng_model = "NOMOR", @readonly = "readonly" })
+                                        <span style="color:maroon" ng-show="frmEvaluasiBijak.NOMOR.$dirty && frmEvaluasiBijak.NOMOR.$invalid">
+                                            <span ng-show="frmEvaluasiBijak.NOMOR.$error.required">Nomor harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label class="control-label" for="NOMOR">Nomor<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.NOMOR, new { @class = "span4", @rows = "3", @ng_required = "true", @ng_model = "NOMOR" })
+                                        <span style="color:maroon" ng-show="frmEvaluasiBijak.NOMOR.$dirty && frmEvaluasiBijak.NOMOR.$invalid">
+                                            <span ng-show="frmEvaluasiBijak.NOMOR.$error.required">Nomor harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        <div class="form-group">
+                            <label class="control-label" for="URAIAN">Jenis Kegiatan</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.URAIAN, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="KESESUAIAN">Kesesuaian</label>
+                            <div class="controls">
+                                @Html.RadioButtonFor(model => model.KESESUAIAN, "1", new { Checked = "checked" }) <text>Ya</text>
+
+                                @Html.RadioButtonFor(model => model.KESESUAIAN, "0") <text>Tidak</text>
+
+                                @Html.ValidationMessageFor(model => model.KESESUAIAN, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="MASALAH">Faktor Penyebab Tidak Sesuai</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.MASALAH, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="SOLUSI">Tindak Lanjut Penyempurnaan (Apabila Tidak)</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.SOLUSI, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="KET">Keterangan</label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.KET, new { @class = "span4", @rows = "3" })
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" ng-disabled="frmEvaluasiBijak.$invalid">
+                                <i class=" btn-icon-only icon-save">
+                                </i>Simpan
+                            </button>
+
+                            <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>
+
+<script>                                                                            
+    jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/RENSTRA/EvaluasiBijak?kdUnit=" + Model.UNITKEY))"); });
+
+    $(function () {
+        $('.form-horizontal').submit(function () {
+            $("input[type='submit']", this)
+              .val("Please Wait...")
+              .attr('disabled', 'disabled');
+            return true;
+        });
+    });
+
+    var app = angular.module('RealisasiApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.NOMOR = '@Model.NOMOR';
+    });
+
+    jQuery(document).ready(function () {
+        jQuery(".currency").autoNumeric('init', { aSep: '.', aDec: ',', aSign: ' ', mDec: 0 });
+    })
+
+</script>

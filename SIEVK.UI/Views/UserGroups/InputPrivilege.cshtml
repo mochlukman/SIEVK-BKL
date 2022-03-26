@@ -1,0 +1,194 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("EditPrivilege", "UserGroups", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            
+            @if (ViewBag.Info != "" && ViewBag.Info != null)
+            {
+                <div class="alert alert-success">@ViewBag.Info</div>
+            }
+            
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-file"></i>
+                    <h3>Ubah Hak Akses</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                      
+                        <div class="form-group">
+                            <label class="control-label">Nama Group</label>
+                            <div class="controls">
+                                <label class="value-label">
+                                    : @ViewBag.GroupName
+                                    @Html.Hidden("UserGroupsID", (object)ViewBag.GroupID)
+                                    @Html.Hidden("UserGroupsName", (object)ViewBag.GroupName)
+                                    <span style="float:right;">
+                                        <input type="text" class="form-control input-sm flexdatalist span4" placeholder='Isi menu yang akan ditambahkan'>
+                                        <a id="btn-add" class="btn btn-success" onclick="AddSelectedData()"><i class="icon-plus"></i> Tambah </a>
+                                        @Html.Hidden("MenuIDSelected")
+                                        @Html.Hidden("MenuDescriptionSelected")
+                                    </span>
+                                   
+                                    <script>
+                                        $( document ).ready(function() {
+                                            $('#btn-add').attr('disabled','disabled');
+                                        });
+
+                                        $('.flexdatalist').flexdatalist({
+                                            searchContain: true,
+                                            textProperty: '{NavigationLabel}',
+                                            valueProperty: 'iso2',
+                                            minLength: 1,
+                                            focusFirstResult: true,
+                                            selectionRequired: true,
+                                            noResultsText: 'Tidak ada hasil untuk "{keyword}"',
+                                            //groupBy: 'NavigationLabel',
+                                            visibleProperties: ["NavigationLabel", "Description"],
+                                            searchIn: ["NavigationLabel"],
+                                            url: '@Url.Content("~/")' + 'UserGroups/GetNotSelectedMenu/?userGroupsId=' + @ViewBag.GroupID +'',
+                                            relatives: '#relative'
+                                        }).on("select:flexdatalist", function (event, data) {
+                                            $('#MenuIDSelected').val(data.MenuID);
+                                            $('#MenuDescriptionSelected').val(data.Description);
+                                            $('#btn-add').removeAttr('disabled');
+                                        });
+
+                                        function AddSelectedData() {
+                                            var menuIdSelected = $("#MenuIDSelected").val();
+                                            var menuNavigationLabel = $(".flexdatalist").val();
+                                            var menuDescriptionSelected = $("#MenuDescriptionSelected").val();
+                                            var tr = '<tr role="row" class="odd">'+
+                                                    '<td>'
+                                                        + menuNavigationLabel +                                                        
+                                                        '<input type="hidden" name="ID" id="ID" value="0"/>' +
+                                                        '<input type="hidden" name="MenuID" id="MenuID" value="' + menuIdSelected + '"/>' +
+                                                    '</td>' +
+                                                    '<td>' + menuDescriptionSelected +'</td>'+
+                                                    '<td class="text-center"><a class="icon-remove delete-row" onClick="RemoveRow(this)"></a></td>' +
+                                                '</tr>';
+
+                                            $("tbody").append(tr);
+
+                                            $("#MenuIDSelected").removeAttr("value");
+                                            $(".flexdatalist").val("");
+                                            $("#MenuDescriptionSelected").removeAttr("value");
+
+                                            // hide no data description
+                                            var row = document.getElementById("TRNoData");
+                                            row.parentNode.removeChild(row);
+
+                                            // disable button add
+                                            $('#btn-add').attr('disabled','disabled');
+                                        }
+
+                                        function RemoveRow(a) {
+                                            var row = a.parentNode.parentNode;
+                                            row.parentNode.removeChild(row);
+                                            console.log(row);
+                                        }
+                                       
+                                    </script>
+                                </label>    
+                                                            
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <table id="listUserGroups" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer" width="100%" cellspacing="0" role="grid" aria-describedby="listUserGroups_info" style="width: 100%;">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="sorting_disabled" rowspan="1" colspan="1">Nama Menu</th>
+                                        <th class="sorting_disabled" rowspan="1" colspan="1">Deskripsi</th>
+                                        <th class="sorting_disabled" rowspan="1" colspan="1" width="5%">Action</th></tr>
+                                </thead>
+                                <tbody>
+                                    @if (ViewBag.List.Count > 0)
+                                    {
+                                        var dic = new Dictionary<int, int>();
+                                        if (ViewBag.ErrRowNo != null)
+                                        {
+                                            dic = ViewBag.ErrRowNo;
+                                        }
+                                        
+                                        var no = 1;
+                                        foreach (SIEVK.Domain.Common.PrivilegeInfo item in ViewBag.List)
+                                        {
+                                            var errColor = string.Empty;
+                                            if (dic.Count != 0)
+                                            {
+                                                if (dic.ContainsKey(no))
+                                                {
+                                                    errColor = "color:#F00";
+                                                }
+                                            }                                            
+                                            
+                                            @Html.Raw("<tr role='row' class='odd' style='"+ errColor + "'>" +
+                                                "<td>" + item.NavigationLabel);
+                                                @Html.Hidden("ID", item.ID);
+                                                @Html.Hidden("MenuID", item.MenuID);
+                                            @Html.Raw("</td>" +
+                                                "<td>"+ item.Description +"</td>" +
+                                                     "<td class='text-center'><a onclick='RemoveRow(this)' class='icon-remove delete-row'></a></td>" +
+                                            "</tr>");
+
+                                            no++;
+                                        }
+                                    }
+                                    else {
+                                         @Html.Raw("<tr id='TRNoData' role='row' class='odd'>" +
+                                                    "<td colspan='2'>Tidak ada data hak akses menu dalam group ini.</td>" +
+                                        "</tr>");
+                                    }
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary"><i class="icon-save"></i> Simpan </button>
+                            <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>
+
+<script>
+
+    jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/userGroups/Index/"))"); });
+
+    $(function(){
+    $('.form-horizontal').submit(function () {
+        $("input[type='submit']", this)
+          .val("Please Wait...")
+          .attr('disabled', 'disabled');
+        return true;
+      });
+    });
+</script>

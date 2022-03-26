@@ -1,0 +1,161 @@
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.dll
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.pdb
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.dll
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.dll
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.pdb
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csprojResolveAssemblyReference.cache
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.dll
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.pdb
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.dll
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.dll
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.dll
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csprojResolveAssemblyReference.cache
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.dll
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.pdb
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csprojAssemblyReference.cache
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CoreCompileInputs.cache
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.pdb
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.pdb
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.Razor.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.pdb
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.pdb
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CopyComplete
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.dll
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.dll
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.dll
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csprojResolveAssemblyReference.cache
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.dll
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.Razor.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.Razor.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\Microsoft.Web.Infrastructure.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csprojAssemblyReference.cache
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CoreCompileInputs.cache
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CopyComplete
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191106\App\SIEVK.Pemda.Depok 20191222 (update menu)\Source Code\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.Razor.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.Razor.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\Microsoft.Web.Infrastructure.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csprojAssemblyReference.cache
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CoreCompileInputs.cache
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CopyComplete
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.pdb
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.pdb
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\System.Web.Razor.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.pdb
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.pdb
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.xml
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\System.Web.Razor.xml
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.xml
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.xml
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\Microsoft.Web.Infrastructure.xml
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csprojAssemblyReference.cache
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CoreCompileInputs.cache
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CopyComplete
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.Helpers.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.Razor.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.Helpers.xml
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.xml
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.Razor.xml
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.xml
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csprojAssemblyReference.cache
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CoreCompileInputs.cache
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CopyComplete
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.dll
+E:\Data DBI\BKL\Project\EMONEVNEW\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessService.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.Helpers.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.Razor.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\SIEVK.BusinessData.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\SIEVK.Domain.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.Helpers.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.Mvc.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.Razor.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csprojAssemblyReference.cache
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CoreCompileInputs.cache
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.csproj.CopyComplete
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessService\obj\Debug\SIEVK.BusinessService.pdb

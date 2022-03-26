@@ -1,0 +1,150 @@
+﻿@model SIEVK.Domain.RKPD.RKPDCatatanLaporanRealisasi
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmRealisasi", @ng_app = "RealisasiApp", @data_ng_controller = "validateCtrl" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="icon-file"></i>
+                    <h3>Catatan Laporan Realisasi SKPD - Edit</h3>
+                </div>
+                <div class="widget-content">
+                    <fieldset>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => Model.KDTAHUN)
+                        @Html.HiddenFor(model => Model.KDTRWN)
+                        @Html.HiddenFor(model => Model.KDFAKTOR)
+                        @Html.HiddenFor(model => Model.UNITKEY)
+                        <input type="hidden" name="iscrate" value="@ViewBag.isCreate" />
+
+                        <div class="form-group">
+                            <label class="control-label" for="TahunAnggaranCombo">Tahun<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.DropDownList("TahunAnggaranCombo", null, new { @class = "form-control input-sm span2", @disabled = "disabled" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="TriwulanCombo">Triwulan<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.DropDownList("TriwulanCombo", null, new { @class = "form-control input-sm span2", @disabled = "disabled" })
+                            </div>
+                        </div>
+
+                        @{if (ViewBag.isCreate == "false")
+                            {
+
+                                <div class="form-group">
+                                    <label class="control-label" for="JFAKTORCombo">Jenis<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.DropDownList("JFAKTORCombo", null, new { @class = "form-control input-sm span2", @disabled = "disabled", style = "width: 400px;" })
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group">
+                                    <label class="control-label" for="JFAKTORCombo">Jenis<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.DropDownList("JFAKTORCombo", null, new { @class = "form-control input-sm span2", style = "width: 400px;" })
+                                    </div>
+                                </div>
+                            }
+                        }
+
+                        <div class="form-group">
+                            <label class="control-label" for="NMCTT">Catatan<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextBoxFor(model => Model.NMCTT, new { @class = "span2", @ng_required = "true", @ng_model = "NMCTT", style = "width: 400px;" })
+                                <span style="color:maroon" ng-show="frmRealisasi.NMCTT.$dirty && frmRealisasi.NMCTT.$invalid">
+                                    <span ng-show="frmRealisasi.NMCTT.$error.required">Nama catatan harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="ISICTT">Isi Catatan<i class="icon-asterisk supscript"></i></label>
+                            <div class="controls">
+                                @Html.TextAreaFor(model => Model.ISICTT, new { @class = "span5", @ng_required = "true", @ng_model = "ISICTT", @rows = "5", style = "width: 500px;" })
+                                <span style="color:maroon" ng-show="frmRealisasi.ISICTT.$dirty && frmRealisasi.ISICTT.$invalid">
+                                    <span ng-show="frmRealisasi.ISICTT.$error.required">Isi catatan harus diisi</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" ng-disabled="frmRealisasi.$invalid">
+                                <i class=" btn-icon-only icon-save">
+                                </i>Simpan
+                            </button>
+
+                            <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</body>
+</html>
+
+<script> 
+    
+    $(document).ready(function () {
+        @{
+            String kodeUnit = "";
+            String kodeTahun = "";
+            String kodeTriwulan = "";
+            String kodeFaktor = "";
+            String nmctt = "";
+            String isictt = "";
+            if (Model != null)
+            {
+                kodeUnit = Model.UNITKEY;
+                kodeTahun = Model.KDTAHUN;
+                kodeTriwulan = Model.KDTRWN;
+                kodeFaktor = Model.KDFAKTOR;
+                nmctt = Model.NMCTT;
+                isictt = Model.ISICTT;
+            }
+        }  
+   
+        jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/RKPD/CatatanLaporanRealisasiSKPD?unitKey=" + kodeUnit + "&kdTahun=" + kodeTahun + "&kdTriwulan=" + kodeTriwulan + ""))")}); 
+    });
+
+    $(function () {
+        $('.form-horizontal').submit(function () {
+            $("input[type='submit']", this)
+              .val("Please Wait...")
+              .attr('disabled', 'disabled');
+            return true;
+        });
+    });
+
+    var app = angular.module('RealisasiApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.KDFAKTOR = '@kodeFaktor';
+        $scope.NMCTT = '@nmctt';
+        $scope.ISICTT = '@isictt';
+    });
+
+</script>

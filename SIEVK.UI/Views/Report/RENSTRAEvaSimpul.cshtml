@@ -1,0 +1,94 @@
+﻿
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Kesimpulan Pengendalian dan Evaluasi Renstra</title>
+            <style>
+                .controls {
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            @using (Html.BeginForm("CetakEvaSimpulRENSTRA", "Report", FormMethod.Post, new { @class = "form-horizontal", @name = "frmReport", @ng_app = "ReportApp", @data_ng_controller = "validateCtrl", target = "_blank" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="span12">
+                    @if (!Html.ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-bar-chart"></i>
+                            <h3>Kesimpulan Pengendalian dan Evaluasi Renstra</h3>
+                        </div>
+                        <div class="widget-content">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="control-label" for="Unit">Unit Organisasi</label>
+                                    @{if (ViewBag.HasUnitKey == true)
+                                    {
+                                        <div class="controls-filter">
+                                            <input type="text" id="unitorganisasi" value='@ViewBag.unitOrgName' name="unitorganisasi" class="form-control input-sm span6" disabled="disabled">
+                                            <input type="hidden" value="@ViewBag.unitKey" id="UnitKodeSelected" name="UnitKodeSelected" />
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="controls-filter">
+                                            <input type="text" id="unitorganisasi" name="unitorganisasi" ng-invalid ng-model="unitorganisasi" class="form-control input-sm flexdatalist span6" placeholder='Isi Nama Unit Organisasi' required>
+                                            @Html.Hidden("UnitKodeSelected")
+                                            @Html.Hidden("UnitNameSelected")
+                                            <span style="color:maroon" ng-show="frmReport.unitorganisasi.$dirty && frmReport.unitorganisasi.$invalid">
+                                                <span ng-show="frmReport.unitorganisasi.$error.required">Unit Organisasi harus diisi</span>
+                                            </span>
+                                        </div>
+                                    }
+                                    }
+                                </div>                               
+
+                                @*Button Action*@
+                                <div class="form-actions">
+                                    <button type="submit" id="btnSubmit" class="btn btn-primary" ng-disabled="frmReport.$invalid">
+                                        <i class=" btn-icon-only icon-print">
+                                        </i>Cetak
+                                    </button>
+                                </div>
+                            </fieldset>
+                            @*</form>*@
+                        </div>
+                    </div>
+                </div>
+            }
+</body>
+    </html>
+
+  <script>
+
+      var app = angular.module('ReportApp', []);
+      app.controller('validateCtrl', function ($scope) {
+          $scope.unitorganisasi = '';
+      });
+
+    $('.flexdatalist').flexdatalist({
+        searchContain: true,
+        textProperty: '{KDUNIT}' + ' ' +'{NMUNIT}',
+        valueProperty: 'iso2',
+        minLength: 0,
+        focusFirstResult: true,
+        selectionRequired: true,
+        noResultsText: 'Tidak ada hasil untuk "{keyword}"',
+        visibleProperties: ["KDUNIT", "NMUNIT"],
+        searchIn: ["KDUNIT", "NMUNIT"],
+        url: '@Url.Content("~/")' + 'Report/GetUnitOrganization/',
+        relatives: '#relative'
+    }).on("select:flexdatalist", function (event, data) {
+        $('#UnitKodeSelected').val(data.UNITKEY);
+        $('#UnitNameSelected').val(data.NMUNIT);
+
+    });
+</script>

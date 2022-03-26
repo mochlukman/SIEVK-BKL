@@ -1,0 +1,142 @@
+﻿@model SIEVK.Domain.APBD.APBDCapaianKinerjaProgram
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        .controls {
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmRealisasi", @ng_app = "RealisasiApp", @data_ng_controller = "validateCtrl" }))
+{
+        @Html.AntiForgeryToken()
+
+        <div class="span12">
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary()
+                </div>
+            }
+            <div class="widget">
+    <div class="widget-header">
+        <i class="icon-file"></i>
+        <h3>Evaluasi Capaian Kinerja Program APBD - @ViewBag.Method</h3>
+    </div>
+    <div class="widget-content">
+        <fieldset>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => Model.UNITKEY)
+            @Html.HiddenFor(model => Model.KDTAHAP)
+            @Html.HiddenFor(model => Model.KDTAHUN)
+            @Html.HiddenFor(model => Model.IDPRGRM)
+            @Html.HiddenFor(model => Model.KINPGRAPBDKEY)
+            @*<input type="hidden" name="IDPRGRM" value="@ViewBag.idPrgrm" />*@
+
+            <div class="form-group">
+            <label class="control-label" for="Target">Target</label>
+            <div class="controls">
+                @Html.TextBoxFor(model => Model.TARGET, new { @class = "span4", @maxlength = "50", @ng_required = "false", @ng_model = "TARGET" })
+            </div>
+            </div>
+
+    <div class="form-group">
+        <label class="control-label" for="REALTAR1">Realisasi TRW 1</label>
+        <div class="controls">
+            @Html.TextBoxFor(model => Model.REALTAR1, new { @class = "span4", @ng_required = "false", @ng_model = "REALTAR1" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="REALTAR2">Realisasi TRW 2</label>
+        <div class="controls">
+            @Html.TextBoxFor(model => Model.REALTAR2, new { @class = "span4", @ng_required = "false", @ng_model = "REALTAR2" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="REALTAR3">Realisasi TRW 3</label>
+        <div class="controls">
+            @Html.TextBoxFor(model => Model.REALTAR3, new { @class = "span4", @ng_required = "false", @ng_model = "REALTAR3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="REALTAR4">Realisasi TRW 4</label>
+        <div class="controls">
+            @Html.TextBoxFor(model => Model.REALTAR4, new { @class = "span4", @ng_required = "false", @ng_model = "REALTAR4" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="REALTARAKHIR">Realisasi Akhir</label>
+        <div class="controls">
+            @Html.TextBoxFor(model => Model.REALTARAKHIR, new { @class = "span4", @ng_required = "false", @ng_model = "REALTARAKHIR" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="ket">Keterangan</label>
+        <div class="controls">
+            @Html.TextAreaFor(model => Model.KET, new { @class = "span4", @rows = "3" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="ctt">Catatan Penting</label>
+        <div class="controls">
+            @Html.TextAreaFor(model => Model.CTT, new { @class = "span4", @rows = "3" })
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary" ng-disabled="frmRealisasi.$invalid">
+            <i class=" btn-icon-only icon-save">
+            </i>Simpan
+        </button>
+
+        <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+    </div>
+    </fieldset>
+        </div>
+            </div>
+        </div>
+
+}
+
+</body>
+</html>
+
+<script>                                                                            
+    jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/APBD/RealisasiCapaianKinerjaProgramAPBD?unitKey=" + Model.UNITKEY + "&kdTahap=" + Model.KDTAHAP + "&kdTahun=" + Model.KDTAHUN + "&idPrgrm=" + ViewBag.idPrgrm + "&Kinpgrapbdkey=" + Model.KINPGRAPBDKEY))"); });
+
+    $(function () {
+        $('.form-horizontal').submit(function () {
+            $("input[type='submit']", this)
+              .val("Please Wait...")
+              .attr('disabled', 'disabled');
+            return true;
+        });
+    });
+
+   
+    var app = angular.module('RealisasiApp', []);
+    app.controller('validateCtrl', function ($scope) {
+        $scope.TARGET = '@Model.TARGET.ToString()';
+        $scope.REALTAR1 = '@Model.REALTAR1.ToString().Replace(System.Environment.NewLine, "")';
+        $scope.REALTAR2 = '@Model.REALTAR2.ToString().Replace(System.Environment.NewLine, "")';
+        $scope.REALTAR3 = '@Model.REALTAR3.ToString().Replace(System.Environment.NewLine, "")';
+        $scope.REALTAR4 = '@Model.REALTAR4.ToString().Replace(System.Environment.NewLine, "")';
+        $scope.REALTARAKHIR = '@Model.REALTARAKHIR.Replace(System.Environment.NewLine, "")';
+    });
+
+    jQuery(document).ready(function () {
+        jQuery(".currency").autoNumeric('init', { aSep: '.', aDec: ',', aSign: ' ', mDec: 0 });
+        $('#TARGET').attr('readonly', true);
+    })
+
+</script>

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="@Url.Content("~/Content/template/img/favico.png")" rel="shortcut icon" type="image/x-icon" />
+    <title>Sistem Informasi Evaluasi Kinerja Pemerintah Kota Bengkalis</title>
+    @Styles.Render("~/Content/template/css")
+
+</head>
+<body>
+
+    @Scripts.Render("~/Content/template/js")
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </a>
+                <a class="brand">
+                    <img src="~/Content/template/img/bengkalis/pemda-bengkalis2.png" style="height: 55px;width: 45px;" alt="img" />
+                    Sistem Informasi Evaluasi Kinerja Pemerintah Kota Bengkalis
+                </a>
+                <div class="nav-collapse">
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-user"></i> @{if (@Session["Username"] != null)
+                                {
+                                    @Html.Raw(@Session["Username"].ToString())
+                                }
+                                } <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("ChangePassword", "Users",  new { userName = "loginuser"})">Ubah Password</a></li>
+                                <li><a href="@Url.Action("Logout", "Login")">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /navbar-inner -->
+    </div>
+
+    <!-- /navbar -->
+	<div class="subnavbar">
+		
+			<div class="subnavbar-inner">
+				<div class="container">
+					<ul class="mainnav">
+						@{if (@Session["Menu"] != null)
+							{
+								@Html.Raw(@Session["Menu"].ToString())
+							}
+							else
+							{
+								Response.Redirect("~/Login/Index");
+							}}
+					</ul>
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /subnavbar-inner -->
+		</div>
+		<!-- /subnavbar -->
+
+		<div class="container body-content">
+			@RenderBody()
+			<hr />
+			<footer>
+				<p>&copy; 2019 - Sistem Informasi Evaluasi Kinerja Pemerintah Kota Bengkalis</p>
+			</footer>
+		</div>
+
+		@RenderSection("scripts", required: false)
+
+</body>
+</html>
+
+<script>
+    //if publish use url content, if not user empty string.
+    //var rootUrl = '@Url.Content("~")'
+    //var rootUrl = ''
+</script>

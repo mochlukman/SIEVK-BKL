@@ -1,0 +1,54 @@
+﻿
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Kesimpulan Pengendalian dan Evaluasi RKPD</title>
+            <style>
+                .controls {
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            @using (Html.BeginForm("CetakEvaSimpulRKPD", "Report", FormMethod.Post, new { @class = "form-horizontal", @name = "frmReport", @ng_app = "ReportApp", @data_ng_controller = "validateCtrl", target = "_blank" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="span12">
+                    @if (!Html.ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-bar-chart"></i>
+                            <h3>Kesimpulan Pengendalian dan Evaluasi RKPD</h3>
+                        </div>
+                        <div class="widget-content">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="control-label" for="TahunCombo">Tahun</label>
+                                    <div class="controls-filter">
+                                        @Html.DropDownList("TahunCombo", null, new { @class = "form-control input-sm span3" })
+                                    </div>
+                                </div>                                
+
+                                @*Button Action*@
+                                <div class="form-actions">
+                                    <button type="submit" id="btnSubmit" class="btn btn-primary" ng-disabled="frmReport.$invalid">
+                                        <i class=" btn-icon-only icon-print">
+                                        </i>Cetak
+                                    </button>
+                                </div>
+                            </fieldset>
+                            @*</form>*@
+                        </div>
+                    </div>
+                </div>
+            }
+</body>
+    </html>
+
+  

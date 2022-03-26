@@ -1,0 +1,208 @@
+﻿@model SIEVK.Domain.Common.Menu
+
+
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Details</title>
+            <style>
+                .controls {
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                }
+            </style>
+        </head>
+        <body>
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="span12" >
+        @if (!Html.ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationSummary()
+            </div>
+        }
+
+        <div class="widget">
+            <div class="widget-header">
+                <i class="icon-file"></i>
+                <h3>Detail Menu</h3>
+            </div>
+            <div class="widget-content">
+                @*<form class="form-horizontal" action="#" method="POST">*@
+                <fieldset>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => Model.ID)
+
+                    <div class="form-group">
+                        <label class="control-label" for="ParentName">Nama Parent</label>
+                        <div class="controls">
+                            <div class="col-sm-3">
+                                @if (Model != null)
+                                {
+                                    if (Model.ParentName != null)
+                                    { 
+                                        <div id="ParentName">
+                                            <label class="value-label" for="ParentName">: @(Model.ParentName)</label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div id="ParentName">
+                                            <label class="value-label" for="ParentName">: -</label>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="control-label" for="NavigatioLabel">Label Navigasi</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="NavigatioLabel">
+                                        <label class="value-label" for="NavigationLabel">: @(Model.NavigationLabel)</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="isOpenNewtab">Buka di Tab Baru</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="isOpenNewtab">
+                                        @if (@Model.IsOpenNewTab == true)
+                                        { 
+                                            <label class="value-label" for="IsOpenNewTab">: Ya</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="value-label" for="IsOpenNewTab">: Tidak</label>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="Description">Deskripsi</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="Description">
+                                        <label class="value-label" for="Description">: @(Model.Description)</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="URL">URL</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="URL">
+                                        <label class="value-label" for="URL">: @(Model.URL)</label>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="IconClass">Icon Class</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    if (Model.IconClass != null)
+                                    { 
+                                        <div id="IconClass">
+                                            <label class="value-label" for="IconClass">: @(Model.IconClass)</label>
+
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div id="IconClass">
+                                            <label class="value-label" for="IconClass">: -</label>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label" for="Sequence">Urutan</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="Sequence">
+                                        <label class="value-label" for="Sequence">: @(Model.Sequence)</label>
+                                    </div>
+                                }
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="IsShow">Tampilkan di Menu</label>
+                        <div class="controls">
+                            <div class="col-sm-5">
+                                @if (Model != null)
+                                {
+                                    <div id="IsShow">
+                                        @if (@Model.IsShow == true)
+                                        {
+                                            <label class="value-label" for="IsOpenNewTab">: Ya</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="value-label" for="IsOpenNewTab">: Tidak</label>
+                                        }
+
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    @*Button Action*@
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-default" id="btnClose"><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                    </div>
+                </fieldset>
+                @*</form>*@
+            </div>
+        </div>
+    </div>
+
+            }
+
+        </body>
+    </html>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+           
+        });
+        jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/Menu/Index/"))"); });
+
+    </script>
+

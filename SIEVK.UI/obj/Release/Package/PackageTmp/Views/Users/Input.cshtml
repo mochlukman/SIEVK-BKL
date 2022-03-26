@@ -1,0 +1,190 @@
+﻿@model SIEVK.Domain.Common.Users
+
+
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Details</title>
+            <style>
+                .controls {
+                    margin-bottom: 20px;
+                    margin-right: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal", @name = "frmUser", @ng_app="UsersApp", @data_ng_controller="validateCtrl" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="span12">
+                    @if (!Html.ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger">
+                            @Html.ValidationSummary()
+                        </div>
+                    }
+                    <div class="widget">
+                        <div class="widget-header">
+                            <i class="icon-file"></i>
+                            <h3>@ViewBag.Title</h3>
+                        </div>
+                        <div class="widget-content">
+                            <fieldset>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => Model.ID)
+
+                                <div class="form-group">
+                                    <label class="control-label" for="UserName">Username<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.UserName, new { @class = "span3", @maxlength = "50", @ng_required = "true", @ng_model = "UserName" })
+                                        <span style="color:maroon" ng-show="frmUser.UserName.$dirty && frmUser.UserName.$invalid">
+                                            <span ng-show="frmUser.UserName.$error.required">Username harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                @if (@ViewBag.isEdit == false)
+                                {
+                                <div class="form-group" id="divPassword">
+                                    <label class="control-label" for="Password">Password<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.Password, new { @class = "span3", @maxlength = "50", @ng_required = "true", @ng_model = "Password", @type="password" })
+                                        <span style="color:maroon" ng-show="frmUser.Password.$dirty && frmUser.Password.$invalid">
+                                            <span ng-show="frmUser.Password.$error.required">Password harus diisi</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="divPasswordConfirm">
+                                    <label class="control-label" for="Password">Konfirmasi Password<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        <input id="PasswordConfirm" name="PasswordConfirm" value="" ng-model="PasswordConfirm" class="span3" type="password" compare-to="Password" required />
+                                        <span style="color:maroon" ng-show="frmUser.PasswordConfirm.$dirty && frmUser.PasswordConfirm.$invalid">
+                                            <span ng-show="frmUser.PasswordConfirm.$error.compareTo">Konfirmasi password tidak sama dengan password</span>
+                                        </span>
+                                    </div>
+                                </div>
+                                }
+
+                                <div class="form-group">
+                                    <label class="control-label" for="UserGroup">Nama Group<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.DropDownList("UserGroupsCombo", null, new { @class = "form-control input-sm span3" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="Unit">Unit<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.DropDownList("UnitCombo", null, new { @class = "form-control input-sm span6" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="FirstName">Nama Awal<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                            @Html.TextBoxFor(model => Model.FirstName, new { @class = "span3", @maxlength = "50", @ng_required = "true", @ng_model = "FirstName" })
+                                            <span style="color:maroon" ng-show="frmUser.FirstName.$dirty && frmUser.FirstName.$invalid">
+                                                <span ng-show="frmUser.FirstName.$error.required">Nama awal harus diisi</span>
+                                            </span>
+                                        </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="LastName">Nama Akhir</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.LastName, "", new { @class = "span3", @maxlength = "50" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="Email">Email</label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(model => Model.Email, new { @class = "span3", @maxlength = "50",  @ng_model = "Email", @type = "email" })
+                                        <span style="color:maroon" ng-show="frmUser.Email.$dirty && frmUser.Email.$invalid">
+                                            <span ng-show="frmUser.Email.$error.email">Penulisan format email salah</span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label" for="IsActive">Aktif Status<i class="icon-asterisk supscript"></i></label>
+                                    <div class="controls">
+                                        @Html.DropDownList("UserStatusAktifCombo", null, new { @class = "form-control input-sm span3" })
+                                    </div>
+                                </div>
+
+
+                                @*Button Action*@
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="frmUser.$invalid">
+                                        <i class=" btn-icon-only icon-save">
+                                        </i>Simpan
+                                    </button>
+                                    <button type="button" class="btn btn-default" id="btnClose" ><i class="btn-icon-only icon-reply"> Kembali </i></button>
+                                </div>
+                            </fieldset>
+                            @*</form>*@
+                        </div>
+                    </div>
+                </div>
+            }
+            
+</body>
+    </html>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            
+        });
+        jQuery("#btnClose").click(function () { jQuery(location).attr("href", "@Html.Raw(@Url.Content("~/Users/Index/"))"); });
+        
+        @if (@ViewBag.isEdit == true)
+        {
+            <text>
+            $('#UserName').attr('readonly', true);
+            </text>
+        }
+
+        var app = angular.module('UsersApp', []);
+        app.controller('validateCtrl', function ($scope) {
+            $scope.UserName = '@Model.UserName';
+            $scope.Password = '@Model.Password';
+            $scope.FirstName = '@Model.FirstName';
+            $scope.Email = '@Model.Email';
+        });
+        
+        $(function () {
+            $('.form-horizontal').submit(function () {
+                $("input[type='submit']", this)
+                  .val("Please Wait...")
+                  .attr('disabled', 'disabled');
+                return true;
+            });
+        });
+
+        var compareTo = function () {
+            return {
+                require: "ngModel",
+                scope: {
+                    otherModelValue: "=compareTo"
+                },
+                link: function (scope, element, attributes, ngModel) {
+
+                    ngModel.$validators.compareTo = function (modelValue) {
+                        return modelValue == scope.otherModelValue;
+                    };
+
+                    scope.$watch("otherModelValue", function () {
+                        ngModel.$validate();
+                    });
+                }
+            };
+        };
+
+        app.directive("compareTo", compareTo);
+       
+
+    </script>
+

@@ -1,0 +1,19 @@
+/**
+ * Flexdatalist custom
+ * style for properties text
+ */
+.flexdatalist-results span:not(:first-child):not(.highlight) {
+    padding-left: 10px;
+    display: inline-block;
+    font-size: 80%;
+    color: rgba(0, 0, 0, 0.50);
+}
+.flexdatalist-results li.active span:not(:first-child):not(.highlight) {
+    color: rgba(255, 255, 255, 0.50);
+}
+.flexdatalist-results li span.highlight {
+    font-weight: 700;
+    text-decoration: underline;
+    color: #000;
+    background: yellow;
+}

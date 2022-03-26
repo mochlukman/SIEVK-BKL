@@ -1,0 +1,66 @@
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.dll
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.pdb
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.dll
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.pdb
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csprojResolveAssemblyReference.cache
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.dll
+D:\Personal\Angular JS\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.dll
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.dll
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.pdb
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csprojResolveAssemblyReference.cache
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.dll
+D:\Personal\SIEVK Depok\Project\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.pdb
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.pdb
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.pdb
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csprojAssemblyReference.cache
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csproj.CoreCompileInputs.cache
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csproj.CopyComplete
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.dll
+D:\Data DBI\KDP\Project\Master SIEVK\SIEVK 2019 08 22\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.dll
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.dll
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.pdb
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csprojResolveAssemblyReference.cache
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.dll
+D:\Personal\SIEVK Depok\Update Source n Database\20191107\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csprojAssemblyReference.cache
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csproj.CoreCompileInputs.cache
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csproj.CopyComplete
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222 (update menu)\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222\SIEVK.Pemda.Depok\SIEVK.BusinessData\bin\Release\SIEVK.Domain.pdb
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csprojAssemblyReference.cache
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csproj.CoreCompileInputs.cache
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csproj.CopyComplete
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.dll
+D:\Documents\Ayah\Projects\20181001_SIEVK DEPOK - Lukman\05 Change Request\CR 20191220\App\SIEVK.Pemda.Depok 20191222\SIEVK.Pemda.Depok\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.pdb
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.pdb
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessData\bin\Release\SIEVK.Domain.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessData\bin\Release\SIEVK.Domain.pdb
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csprojAssemblyReference.cache
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csproj.CoreCompileInputs.cache
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csproj.CopyComplete
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.dll
+D:\Documents\Ayah\Projects\20200102_SIEVK BENGKALIS - Lukman\App\SIEVK.Pemda.Bengkalis\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessData\bin\Release\SIEVK.BusinessData.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessData\bin\Release\SIEVK.Domain.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessData\bin\Release\SIEVK.Domain.pdb
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csprojAssemblyReference.cache
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csproj.CoreCompileInputs.cache
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.csproj.CopyComplete
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.dll
+E:\Data DBI\BKL\Project\EMONEVNEW1\SIEVK.BusinessData\obj\Release\SIEVK.BusinessData.pdb
